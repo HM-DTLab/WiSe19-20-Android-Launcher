@@ -1,4 +1,4 @@
-package hm.edu.launcher.config.parser;
+package edu.hm.launcher.config.parser;
 
 public class ConfigParseException extends Exception {
 

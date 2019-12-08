@@ -1,4 +1,4 @@
-package hm.edu.launcher.config.container;
+package edu.hm.launcher.config.container;
 
 
 /**

@@ -1,4 +1,4 @@
-package hm.edu.launcher.config.parser;
+package edu.hm.launcher.config.parser;
 
 import org.junit.Test;
 
@@ -6,7 +6,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import hm.edu.launcher.config.container.ConfigurationContainer;
+import edu.hm.launcher.config.container.ConfigurationContainer;
 
 import static org.junit.Assert.assertEquals;
 

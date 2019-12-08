@@ -1,4 +1,4 @@
-package hm.edu.launcher.config.parser;
+package edu.hm.launcher.config.parser;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -13,8 +13,8 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import hm.edu.launcher.config.container.AppContainer;
-import hm.edu.launcher.config.container.ConfigurationContainer;
+import edu.hm.launcher.config.container.AppContainer;
+import edu.hm.launcher.config.container.ConfigurationContainer;
 
 public class XmlParserV1 implements IConfigurationParser {
 

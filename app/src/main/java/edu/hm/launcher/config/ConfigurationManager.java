@@ -1,4 +1,4 @@
-package hm.edu.launcher.config;
+package edu.hm.launcher.config;
 
 import android.app.Activity;
 
@@ -9,11 +9,11 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Observable;
 
-import hm.edu.launcher.config.container.AppContainer;
-import hm.edu.launcher.config.container.ConfigurationContainer;
-import hm.edu.launcher.config.parser.ConfigParseException;
-import hm.edu.launcher.config.parser.IConfigurationParser;
-import hm.edu.launcher.config.parser.XmlFactory;
+import edu.hm.launcher.config.container.AppContainer;
+import edu.hm.launcher.config.container.ConfigurationContainer;
+import edu.hm.launcher.config.parser.ConfigParseException;
+import edu.hm.launcher.config.parser.IConfigurationParser;
+import edu.hm.launcher.config.parser.XmlFactory;
 
 /**
  * Manages the current configuration.

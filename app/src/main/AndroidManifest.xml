@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="hm.edu.launcher">
+    package="edu.hm.launcher">
 
     <application
         android:allowBackup="true"

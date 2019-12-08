@@ -1,4 +1,4 @@
-package hm.edu.launcher.config.parser;
+package edu.hm.launcher.config.parser;
 
 /**
  * Static class to produce XmlParsers for a given version number.
