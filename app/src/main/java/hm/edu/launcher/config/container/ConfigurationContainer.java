@@ -8,9 +8,6 @@ public class ConfigurationContainer {
 
     private final List<AppContainer> apps = new ArrayList<>();
 
-    public ConfigurationContainer() {
-    }
-
     public List<AppContainer> getApps() {
         return Collections.unmodifiableList(apps);
     }
@@ -18,4 +15,13 @@ public class ConfigurationContainer {
     public void add(AppContainer container) {
         apps.add(container);
     }
+
+    public void changeAt(int id, AppContainer app) {
+        apps.set(id, app);
+    }
+
+    public void removeAt(int id) {
+        apps.remove(id);
+    }
+
 }
