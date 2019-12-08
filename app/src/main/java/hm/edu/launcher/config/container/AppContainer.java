@@ -1,5 +1,9 @@
 package hm.edu.launcher.config.container;
 
+
+/**
+ * Simple container to hold information about an App
+ */
 public class AppContainer {
 
     private final String appName;

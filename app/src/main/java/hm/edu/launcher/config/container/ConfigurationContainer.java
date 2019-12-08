@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Simple container for several sorted AppContainers
+ */
 public class ConfigurationContainer {
 
     private final List<AppContainer> apps = new ArrayList<>();
