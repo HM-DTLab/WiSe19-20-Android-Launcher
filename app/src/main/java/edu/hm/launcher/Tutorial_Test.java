@@ -11,7 +11,7 @@ public class Tutorial_Test extends AppCompatActivity {
 
     ImageView imageView;
     TextView title, descrpition;
-    int positon;
+    int position;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class Tutorial_Test extends AppCompatActivity {
         title = findViewById(R.id.titleText);
         descrpition = findViewById(R.id.description);
 
-        if (positon == 0)   {
+        if (position == 0)   {
             Intent intent = getIntent();
 
             //Bundle bundle = this.getIntent().getExtras();
