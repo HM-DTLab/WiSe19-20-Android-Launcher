@@ -11,9 +11,12 @@ import android.widget.Toast;
 public class Tutorial_page extends AppCompatActivity {
 
     ListView listView;
-    String tutorialTitle[] = {"Tutorial 1", "Tutorial 2"};
-    int images[] = {};
-    //example: R.drawable.[image name]
+    String[] tutorialTitle = {"Maps", "Notizen"};
+    String[][] descritption = {
+            {"Route erstellen", "Maps öffnen", "route eingeben"},
+            {"Notiz erstellen", "Notizen öffnen", "neue Notiz erstellen"}
+    };
+    int images[] = {R.drawable.googlemaps,R.drawable.note};
 
 
     @Override
@@ -21,8 +24,9 @@ public class Tutorial_page extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorial_page);
 
+
         listView = findViewById(R.id.listView);
-        MyAdapter adapter = new MyAdapter(this, tutorialTitle, images);
+        MyAdapter adapter = new MyAdapter(this, tutorialTitle,descritption, images);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -31,38 +35,26 @@ public class Tutorial_page extends AppCompatActivity {
                 if (position == 0)  {
                     Intent intent = new Intent(getApplicationContext(), Tutorial_Test.class);
 
-                    //No images yet implementet
-                    //Bundle bundle = new Bundle();
-                    //bundle.putInt("image", images[0]);
-                    //intent.putExtras(bundle);
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("image", images[0]);
+                    intent.putExtras(bundle);
 
                     intent.putExtra("title", tutorialTitle[0]);
                     intent.putExtra("position", ""+0);
+                    intent.putExtra("description", descritption[0]);
                     startActivity(intent);
 
-                }
-                if (position == 0)  {
-                    Intent intent = new Intent(getApplicationContext(), Tutorial_Test.class);
-
-                    //No images yet implementet
-                    //Bundle bundle = new Bundle();
-                    //bundle.putInt("image", images[0]);
-                    //intent.putExtras(bundle);
-
-                    intent.putExtra("title", tutorialTitle[1]);
-                    intent.putExtra("position", ""+1);
-                    startActivity(intent);
                 }
                 else if (position == 1)  {
                     Intent intent = new Intent(getApplicationContext(), Tutorial_Test.class);
 
-                    //No images yet implementet
-                    //Bundle bundle = new Bundle();
-                    //bundle.putInt("image", images[0]);
-                    //intent.putExtras(bundle);
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("image", images[1]);
+                    intent.putExtras(bundle);
 
                     intent.putExtra("title", tutorialTitle[1]);
                     intent.putExtra("position", ""+1);
+                    intent.putExtra("description", descritption[1]);
                     startActivity(intent);
                 }
 

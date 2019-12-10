@@ -27,20 +27,20 @@ public class Tutorial_Test extends AppCompatActivity {
 
         imageView = findViewById(R.id.tutorial_imageView);
         title = findViewById(R.id.titleText);
-        descrpition = findViewById(R.id.description);
+        descrpition = findViewById(R.id.descriptionText);
 
         if (position == 0)   {
             Intent intent = getIntent();
 
-            //Bundle bundle = this.getIntent().getExtras();
-            //int pic = bundle.getInt("image");
+            Bundle bundle = this.getIntent().getExtras();
+            int pic = bundle.getInt("image");
             String aTitle = intent.getStringExtra("title");
+            String firstDescription = intent.getStringExtra("description");
             // Description
 
-            //imageView.setImageResource(pic);
-            //descrpition.setText();
+            imageView.setImageResource(pic);
             title.setText(aTitle);
-
+            descrpition.setText(firstDescription);
             actionBar.setTitle(aTitle);
 
         }

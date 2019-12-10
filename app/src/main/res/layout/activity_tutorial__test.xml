@@ -27,10 +27,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/description"
+        android:id="@+id/descriptionText"
         android:text="Description"
         android:textSize="26sp"
         android:gravity="center"
         android:layout_below="@+id/titleText"/>
+
 
 </RelativeLayout>
