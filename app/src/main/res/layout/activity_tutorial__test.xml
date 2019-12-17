@@ -5,33 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".Tutorial_Test">
+    tools:context=".tutorial.Tutorial_Test">
 
-    <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@mipmap/ic_launcher"
-        android:layout_marginTop="150dp"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/tutorial_imageView"/>
-
-    <TextView
+    <ListView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/titleText"
-        android:text="Title Text"
-        android:textSize="28dp"
-        android:gravity="center"
-        android:layout_below="@+id/tutorial_imageView"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/descriptionText"
-        android:text="Description"
-        android:textSize="26sp"
-        android:gravity="center"
-        android:layout_below="@+id/titleText"/>
+        android:layout_height="match_parent"
+        android:id="@+id/tutorial_listView">
+    </ListView>
 
 
 </RelativeLayout>

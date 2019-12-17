@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">swe1-launcher</string>
+
+
+    <string-array name="tutorial_titel">
+        <item>Route erstellen</item>
+        <item>Neue Notiz erstellen</item>
+    </string-array>
+
+    <string-array name="tutorial_description_maps">
+        <item>Maps öffnen</item>
+        <item>Route erstellen</item>
+    </string-array>
+    <string-array name="tutorial_description_notizen">
+        <item>Notizen app öffnen</item>
+        <item>Neue Notiz öffnen</item>
+    </string-array>
+
+    <array name="tutorial_descriptions">
+        <item>@array/tutorial_description_maps</item>
+        <item>@array/tutorial_description_notizen</item>
+    </array>
+
 </resources>

@@ -1,4 +1,4 @@
-package edu.hm.launcher;
+package edu.hm.launcher.tutorial;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import edu.hm.launcher.R;
 
 public class MyAdapter extends ArrayAdapter<String> {
 
@@ -38,7 +40,7 @@ public class MyAdapter extends ArrayAdapter<String> {
 
         images.setImageResource(image[position]);
         myTutorialTitle.setText(rTitle[position]);
-        myDescription.setText(description[position][0]);
+        //myDescription.setText(description[position]);
 
 
 

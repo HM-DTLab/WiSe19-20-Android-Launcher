@@ -1,16 +1,19 @@
-package edu.hm.launcher;
+package edu.hm.launcher.tutorial;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import edu.hm.launcher.R;
 
 public class Tutorial_Test extends AppCompatActivity {
 
-    ImageView imageView;
-    TextView title, descrpition;
+    ListView listView;
+
     int position;
 
     @Override
@@ -18,6 +21,17 @@ public class Tutorial_Test extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorial__test);
 
+        listView = findViewById(R.id.tutorial_listView);
+
+        Intent intent = getIntent();
+
+        Bundle bundle = this.getIntent().getExtras();
+        int images = bundle.getInt("image");
+        String title = intent.getStringExtra("title");
+        String[] description = intent.getStringArrayExtra("description");
+
+        MyAdapterTutorialPage adapter = new MyAdapterTutorialPage(this, title, description, images);
+        listView.setAdapter(adapter);
         ActionBar actionBar = getSupportActionBar();
 
         if (actionBar != null)  {
@@ -25,22 +39,13 @@ public class Tutorial_Test extends AppCompatActivity {
             actionBar.setDisplayShowHomeEnabled(true);
         }
 
-        imageView = findViewById(R.id.tutorial_imageView);
-        title = findViewById(R.id.titleText);
-        descrpition = findViewById(R.id.descriptionText);
-
         if (position == 0)   {
-            Intent intent = getIntent();
 
-            Bundle bundle = this.getIntent().getExtras();
             int pic = bundle.getInt("image");
             String aTitle = intent.getStringExtra("title");
-            String firstDescription = intent.getStringExtra("description");
+            String[] firstDescription = intent.getStringArrayExtra("description");
             // Description
 
-            imageView.setImageResource(pic);
-            title.setText(aTitle);
-            descrpition.setText(firstDescription);
             actionBar.setTitle(aTitle);
 
         }
