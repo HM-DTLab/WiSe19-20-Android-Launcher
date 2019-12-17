@@ -11,42 +11,55 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+
 import edu.hm.launcher.MainActivity;
 import edu.hm.launcher.R;
 
 public class Tutorial_page extends AppCompatActivity {
 
     ListView listView;
-    String[] tutorialTitle;
+    TypedArray typedArrayTitles;
     TypedArray typedArrayDescriptions;
-    int[] images = {R.drawable.googlemaps, R.drawable.note};
+    TypedArray typedArrayImages;
     float x1, x2, y1, y2;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        tutorialTitle = getResources().getStringArray(R.array.tutorial_titel);
+        typedArrayTitles = getResources().obtainTypedArray(R.array.tutorial_titles);
         typedArrayDescriptions = getResources().obtainTypedArray(R.array.tutorial_descriptions);
+        typedArrayImages = getResources().obtainTypedArray(R.array.tutorial_images);
         setContentView(R.layout.activity_tutorial_page);
-        final String[][] descriptions = createArray();
+        final String[][] descriptions = createArray(typedArrayDescriptions);
+        final String[][] titles = createArray(typedArrayTitles);
+        final int[][] images = {
+                {R.drawable.googlemaps, R.drawable.googlemaps},
+                {R.drawable.note, R.drawable.note}
+        };
+
 
 
         listView = findViewById(R.id.listView);
-        MyAdapter adapter = new MyAdapter(this, tutorialTitle, descriptions, images);
+        MyAdapter adapter = new MyAdapter(this, titles, descriptions, images);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 if (position == 0)  {
                     Intent intent = new Intent(getApplicationContext(), Tutorial_Test.class);
 
-                    Bundle bundle = new Bundle();
-                    bundle.putInt("image", images[0]);
-                    intent.putExtras(bundle);
-
-                    intent.putExtra("title", tutorialTitle[0]);
+                    intent.putExtra("image",images[0]);
+                    intent.putExtra("title", titles[0]);
                     intent.putExtra("position", ""+0);
                     intent.putExtra("description", descriptions[0]);
                     startActivity(intent);
@@ -55,11 +68,8 @@ public class Tutorial_page extends AppCompatActivity {
                 else if (position == 1)  {
                     Intent intent = new Intent(getApplicationContext(), Tutorial_Test.class);
 
-                    Bundle bundle = new Bundle();
-                    bundle.putInt("image", images[1]);
-                    intent.putExtras(bundle);
-
-                    intent.putExtra("title", tutorialTitle[1]);
+                    intent.putExtra("image",images[1]);
+                    intent.putExtra("title", titles[1]);
                     intent.putExtra("position", ""+1);
                     intent.putExtra("description", descriptions[1]);
                     startActivity(intent);
@@ -78,27 +88,41 @@ public class Tutorial_page extends AppCompatActivity {
             case MotionEvent.ACTION_UP:
                 x2 = touchEvent.getX();
                 y2 = touchEvent.getY();
-                if(x1 < x2){
+                if(x1 > x2){
                     Intent i = new Intent(Tutorial_page.this, MainActivity.class);
                     startActivity(i);
-                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                     break;
                 }
         }
         return true;
     }
 
-    private String[][] createArray()    {
-        Log.d("ARRAY","Swiped");
-        int length = typedArrayDescriptions.length();
+
+
+    private String[][] createArray(TypedArray typedArray)    {
+        int length = typedArray.length();
         String[][] array = new String[length][];
         for (int index = 0; index < length; index++) {
-            int id = typedArrayDescriptions.getResourceId(index, 0);
+            int id = typedArray.getResourceId(index, 0);
             if (id > 0) {
                 array[index] = getResources().getStringArray(id);
             }
         }
-        typedArrayDescriptions.recycle();
+        typedArray.recycle();
+        return array;
+    }
+
+    private int[][] createArrayInt(TypedArray typedArray)    {
+        int length = typedArray.length();
+        int[][] array = new int[length][];
+        for (int index = 0; index < length; index++) {
+            int id = typedArray.getResourceId(index, 0);
+            if (id > 0) {
+                array[index] = getResources().getIntArray(id);
+            }
+        }
+        typedArray.recycle();
         return array;
     }
 

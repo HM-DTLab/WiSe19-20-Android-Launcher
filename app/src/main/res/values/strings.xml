@@ -1,11 +1,26 @@
 <resources>
     <string name="app_name">swe1-launcher</string>
 
+    <array name="tutorial_titles">
+        <item>@array/tutorial_title_maps</item>
+        <item>@array/tutorial_title_notizen</item>
+    </array>
 
-    <string-array name="tutorial_titel">
+    <array name="tutorial_descriptions">
+        <item>@array/tutorial_description_maps</item>
+        <item>@array/tutorial_description_notizen</item>
+    </array>
+
+
+    <string-array name="tutorial_title_maps">
         <item>Route erstellen</item>
-        <item>Neue Notiz erstellen</item>
+        <item>oben links drücken</item>
     </string-array>
+    <string-array name="tutorial_title_notizen">
+        <item>Neue Notiz erstellen</item>
+        <item>oben rechts drücken</item>
+    </string-array>
+
 
     <string-array name="tutorial_description_maps">
         <item>Maps öffnen</item>
@@ -15,10 +30,5 @@
         <item>Notizen app öffnen</item>
         <item>Neue Notiz öffnen</item>
     </string-array>
-
-    <array name="tutorial_descriptions">
-        <item>@array/tutorial_description_maps</item>
-        <item>@array/tutorial_description_notizen</item>
-    </array>
 
 </resources>

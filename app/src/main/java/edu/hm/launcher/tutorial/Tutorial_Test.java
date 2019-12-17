@@ -8,12 +8,19 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+
 import edu.hm.launcher.R;
 
 public class Tutorial_Test extends AppCompatActivity {
 
     ListView listView;
-
     int position;
 
     @Override
@@ -22,10 +29,9 @@ public class Tutorial_Test extends AppCompatActivity {
 
         Intent intent = getIntent();
         Bundle bundle = this.getIntent().getExtras();
-        int images = bundle.getInt("image");
-        String title = intent.getStringExtra("title");
+        int[] images = bundle.getIntArray("image");
+        String[] title = intent.getStringArrayExtra("title");
         String[] description = intent.getStringArrayExtra("description");
-
 
         setContentView(R.layout.activity_tutorial__test);
 
@@ -39,6 +45,7 @@ public class Tutorial_Test extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setDisplayShowHomeEnabled(true);
         }
+
 
         if (position == 0)   {
 
@@ -66,6 +73,5 @@ public class Tutorial_Test extends AppCompatActivity {
             actionBar.setTitle(aTitle);
 
         }
-
     }
 }

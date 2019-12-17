@@ -10,20 +10,21 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.Collections;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 import edu.hm.launcher.R;
 
 public class MyAdapterTutorialPage extends ArrayAdapter<String> {
 
     Context context;
-    String rTitle;
+    String rTitle[];
     String description[];
-    int image;
+    int[] image;
 
 
-    MyAdapterTutorialPage(Context c, String title,String description[], int image)   {
-        super(c, R.layout.row, R.id.titleView, Collections.singletonList(title));
+    MyAdapterTutorialPage(Context c, String title[],String description[], int[] image)   {
+        super(c, R.layout.row, R.id.titleView, description);
         this.context = c;
         this.rTitle = title;
         this.description = description;
@@ -39,8 +40,8 @@ public class MyAdapterTutorialPage extends ArrayAdapter<String> {
         TextView myTutorialTitle = tutorial_row.findViewById(R.id.tutorial_titleView);
         TextView myDescription = tutorial_row.findViewById(R.id.tutorial_descriptionView);
 
-        //images.setImageResource(image);
-        myTutorialTitle.setText(rTitle);
+        images.setImageResource(image[position]);
+        myTutorialTitle.setText(rTitle[position]);
         myDescription.setText(description[position]);
 
         return tutorial_row;
