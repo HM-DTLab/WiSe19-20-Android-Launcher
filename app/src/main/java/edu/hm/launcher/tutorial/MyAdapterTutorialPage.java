@@ -28,7 +28,6 @@ public class MyAdapterTutorialPage extends ArrayAdapter<String> {
         this.rTitle = title;
         this.description = description;
         this.image = image;
-
     }
 
     @NonNull

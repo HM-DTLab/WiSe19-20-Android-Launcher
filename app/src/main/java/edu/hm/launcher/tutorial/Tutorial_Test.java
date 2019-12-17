@@ -19,19 +19,20 @@ public class Tutorial_Test extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tutorial__test);
-
-        listView = findViewById(R.id.tutorial_listView);
 
         Intent intent = getIntent();
-
         Bundle bundle = this.getIntent().getExtras();
         int images = bundle.getInt("image");
         String title = intent.getStringExtra("title");
         String[] description = intent.getStringArrayExtra("description");
 
+
+        setContentView(R.layout.activity_tutorial__test);
+
+        listView = findViewById(R.id.tutorial_listView);
         MyAdapterTutorialPage adapter = new MyAdapterTutorialPage(this, title, description, images);
         listView.setAdapter(adapter);
+
         ActionBar actionBar = getSupportActionBar();
 
         if (actionBar != null)  {
@@ -43,7 +44,23 @@ public class Tutorial_Test extends AppCompatActivity {
 
             int pic = bundle.getInt("image");
             String aTitle = intent.getStringExtra("title");
-            String[] firstDescription = intent.getStringArrayExtra("description");
+
+            for (int index = 0; index < description.length; index++)    {
+                String[] firstDescription = intent.getStringArrayExtra("description");
+            }
+            // Description
+
+            actionBar.setTitle(aTitle);
+
+        }
+        if (position == 1)   {
+
+            int pic = bundle.getInt("image");
+            String aTitle = intent.getStringExtra("title");
+
+            for (int index = 0; index < description.length; index++)    {
+                String[] firstDescription = intent.getStringArrayExtra("description");
+            }
             // Description
 
             actionBar.setTitle(aTitle);
