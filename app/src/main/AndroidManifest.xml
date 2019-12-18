@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".tutorial.Tutorial_Test"
-            android:parentActivityName=".tutorial.Tutorial_page"></activity>
-        <activity android:name=".tutorial.Tutorial_page" />
+        <activity android:name=".tutorial.Tutorials"
+            android:parentActivityName=".tutorial.TutorialPage"></activity>
+        <activity android:name=".tutorial.TutorialPage" />
         <activity android:name=".MainActivity">
 
             <intent-filter>

@@ -10,7 +10,6 @@ import edu.hm.launcher.R;
 public class Tutorials extends AppCompatActivity {
 
     ListView listView;
-    int position;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
