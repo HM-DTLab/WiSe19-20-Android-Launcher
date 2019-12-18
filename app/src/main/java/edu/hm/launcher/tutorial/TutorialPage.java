@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import edu.hm.launcher.MainActivity;
 import edu.hm.launcher.R;
 
-public class Tutorial_page extends AppCompatActivity {
+public class TutorialPage extends AppCompatActivity {
 
     ListView listView;
     TypedArray typedArrayTitles;
@@ -40,6 +40,7 @@ public class Tutorial_page extends AppCompatActivity {
         setContentView(R.layout.activity_tutorial_page);
         final String[][] descriptions = createArray(typedArrayDescriptions);
         final String[][] titles = createArray(typedArrayTitles);
+        //needs to be done better
         final int[][] images = {
                 {R.drawable.googlemaps, R.drawable.googlemaps},
                 {R.drawable.note, R.drawable.note}
@@ -48,7 +49,7 @@ public class Tutorial_page extends AppCompatActivity {
 
 
         listView = findViewById(R.id.listView);
-        MyAdapter adapter = new MyAdapter(this, titles, descriptions, images);
+        MyAdapterTutorials adapter = new MyAdapterTutorials(this, titles, descriptions, images);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -56,7 +57,7 @@ public class Tutorial_page extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 if (position == 0)  {
-                    Intent intent = new Intent(getApplicationContext(), Tutorial_Test.class);
+                    Intent intent = new Intent(getApplicationContext(), Tutorials.class);
 
                     intent.putExtra("image",images[0]);
                     intent.putExtra("title", titles[0]);
@@ -66,7 +67,7 @@ public class Tutorial_page extends AppCompatActivity {
 
                 }
                 else if (position == 1)  {
-                    Intent intent = new Intent(getApplicationContext(), Tutorial_Test.class);
+                    Intent intent = new Intent(getApplicationContext(), Tutorials.class);
 
                     intent.putExtra("image",images[1]);
                     intent.putExtra("title", titles[1]);
@@ -89,7 +90,7 @@ public class Tutorial_page extends AppCompatActivity {
                 x2 = touchEvent.getX();
                 y2 = touchEvent.getY();
                 if(x1 > x2){
-                    Intent i = new Intent(Tutorial_page.this, MainActivity.class);
+                    Intent i = new Intent(TutorialPage.this, MainActivity.class);
                     startActivity(i);
                     overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                     break;

@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import edu.hm.launcher.R;
 
-public class MyAdapter extends ArrayAdapter<String> {
+public class MyAdapterTutorials extends ArrayAdapter<String> {
 
     Context context;
     String rTitle[][];
@@ -20,7 +20,7 @@ public class MyAdapter extends ArrayAdapter<String> {
     int image[][];
 
 
-    MyAdapter(Context c, String title[][],String description[][], int image[][])   {
+    MyAdapterTutorials(Context c, String title[][],String description[][], int image[][])   {
         super(c, R.layout.row, R.id.titleView, title[1]);
         this.context = c;
         this.rTitle = title;

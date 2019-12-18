@@ -10,9 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-
 import edu.hm.launcher.R;
 
 public class MyAdapterTutorialPage extends ArrayAdapter<String> {
