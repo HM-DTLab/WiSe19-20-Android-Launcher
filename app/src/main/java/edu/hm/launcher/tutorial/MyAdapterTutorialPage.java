@@ -15,32 +15,33 @@ import edu.hm.launcher.R;
 public class MyAdapterTutorialPage extends ArrayAdapter<String> {
 
     Context context;
-    String rTitle[];
-    String description[];
-    int[] image;
+    String rTitle[][];
+    String description[][];
+    int image[][];
 
 
-    MyAdapterTutorialPage(Context c, String title[],String description[], int[] image)   {
-        super(c, R.layout.row, R.id.titleView, description);
+    MyAdapterTutorialPage(Context c, String title[][],String description[][], int image[][])   {
+        super(c, R.layout.row, R.id.titleView, title[1]);
         this.context = c;
         this.rTitle = title;
         this.description = description;
         this.image = image;
+
     }
 
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater layoutInflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View tutorial_row = layoutInflater.inflate(R.layout.tutorial_row, parent, false);
-        ImageView images = tutorial_row.findViewById(R.id.tutorial_imageView);
-        TextView myTutorialTitle = tutorial_row.findViewById(R.id.tutorial_titleView);
-        TextView myDescription = tutorial_row.findViewById(R.id.tutorial_descriptionView);
+        View row = layoutInflater.inflate(R.layout.row, parent, false);
+        ImageView images = row.findViewById(R.id.image);
+        TextView myTutorialTitle = row.findViewById(R.id.titleView);
+        TextView myDescriptionTitle = row.findViewById(R.id.descriptionView);
 
-        images.setImageResource(image[position]);
-        myTutorialTitle.setText(rTitle[position]);
-        myDescription.setText(description[position]);
+        images.setImageResource(image[position][0]);
+        myTutorialTitle.setText(rTitle[position][0]);
+        myDescriptionTitle.setText(description[position][0]);
 
-        return tutorial_row;
+        return row;
     }
 }

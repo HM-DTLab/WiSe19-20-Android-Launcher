@@ -15,31 +15,30 @@ import edu.hm.launcher.R;
 public class MyAdapterTutorials extends ArrayAdapter<String> {
 
     Context context;
-    String rTitle[][];
-    String description[][];
-    int image[][];
+    String rTitle[];
+    String description[];
+    int[] image;
 
 
-    MyAdapterTutorials(Context c, String title[][],String description[][], int image[][])   {
-        super(c, R.layout.row, R.id.titleView, title[1]);
+    MyAdapterTutorials(Context c, String title[],String description[], int[] image)   {
+        super(c, R.layout.row, R.id.titleView, description);
         this.context = c;
         this.rTitle = title;
         this.description = description;
         this.image = image;
-
     }
 
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         LayoutInflater layoutInflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View row = layoutInflater.inflate(R.layout.row, parent, false);
-        ImageView images = row.findViewById(R.id.image);
-        TextView myTutorialTitle = row.findViewById(R.id.titleView);
+        View tutorial_row = layoutInflater.inflate(R.layout.tutorial_row, parent, false);
+        ImageView images = tutorial_row.findViewById(R.id.tutorial_imageView);
+        TextView myDescription = tutorial_row.findViewById(R.id.tutorial_descriptionView);
 
-        images.setImageResource(image[position][0]);
-        myTutorialTitle.setText(rTitle[position][0]);
+        images.setImageResource(image[position]);
+        myDescription.setText(description[position]);
 
-        return row;
+        return tutorial_row;
     }
 }

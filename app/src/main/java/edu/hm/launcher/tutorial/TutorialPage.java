@@ -39,7 +39,7 @@ public class TutorialPage extends AppCompatActivity {
 
 
         listView = findViewById(R.id.listView);
-        MyAdapterTutorials adapter = new MyAdapterTutorials(this, titles, descriptions, images);
+        MyAdapterTutorialPage adapter = new MyAdapterTutorialPage(this, titles, descriptions, images);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

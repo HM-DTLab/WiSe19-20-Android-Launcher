@@ -24,7 +24,7 @@ public class Tutorials extends AppCompatActivity {
         setContentView(R.layout.activity_tutorials);
 
         listView = findViewById(R.id.tutorial_listView);
-        MyAdapterTutorialPage adapter = new MyAdapterTutorialPage(this, title, description, images);
+        MyAdapterTutorials adapter = new MyAdapterTutorials(this, title, description, images);
         listView.setAdapter(adapter);
 
     }
