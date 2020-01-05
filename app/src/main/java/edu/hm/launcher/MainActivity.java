@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Observable;
 
@@ -26,6 +27,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         configurationManager.addObserver(this::onConfigChanged);
+        try {
+            configurationManager.loadConfig();
+        } catch (IOException e) {
+            Toast.makeText(getApplicationContext(),
+                    "Could not load configuration: " + e.getMessage(),
+                    Toast.LENGTH_SHORT).show();
+        }
     }
 
 

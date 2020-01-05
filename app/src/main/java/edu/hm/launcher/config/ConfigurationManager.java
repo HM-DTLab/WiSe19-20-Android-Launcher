@@ -4,10 +4,18 @@ import android.app.Activity;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Observable;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 import edu.hm.launcher.config.container.AppContainer;
 import edu.hm.launcher.config.container.ConfigurationContainer;
@@ -33,6 +41,7 @@ public class ConfigurationManager extends Observable {
 
     public ConfigurationManager(Activity mainActivity) {
         this.mainActivity = mainActivity;
+        addObserver(this::saveConfig);
     }
 
     /**
@@ -96,6 +105,30 @@ public class ConfigurationManager extends Observable {
         }
         setChanged();
         notifyObservers(currentConfig);
+    }
+
+    /**
+     * Saves the current config to the /active_config.xml file.
+     * @param ob (ignored).
+     * @param arg (ignored).
+     */
+    private void saveConfig(Observable ob, Object arg) {
+        try {
+            DOMSource source = currentConfig.toXml();
+            try(FileOutputStream writer = new FileOutputStream(
+                    new File(mainActivity.getFilesDir() + "/active_config.xml"))) {
+                TransformerFactory.newInstance().newTransformer()
+                        .transform(source, new StreamResult(writer));
+            }
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (TransformerConfigurationException e) {
+            e.printStackTrace();
+        } catch (TransformerException e) {
+            e.printStackTrace();
+        }
     }
 
 }
