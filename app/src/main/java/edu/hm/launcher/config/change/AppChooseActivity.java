@@ -22,6 +22,7 @@ public class AppChooseActivity extends AppCompatActivity {
             Intent intent = new Intent();
             intent.putExtra("app_package_name", applicationInfo.packageName);
             setResult(RESULT_OK, intent);
+            finish();
         }));
     }
 }

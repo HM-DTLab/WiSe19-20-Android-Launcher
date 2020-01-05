@@ -24,7 +24,7 @@ public class ConfigurationManager extends Observable {
     /**
      * The current active configuration.
      */
-    private ConfigurationContainer currentConfig;
+    private ConfigurationContainer currentConfig = new ConfigurationContainer();
 
     /**
      * The main parent Activity.
@@ -49,6 +49,8 @@ public class ConfigurationManager extends Observable {
      */
     public void add(AppContainer container) {
         currentConfig.add(container);
+        setChanged();
+        notifyObservers(currentConfig);
     }
 
     /**
@@ -58,6 +60,8 @@ public class ConfigurationManager extends Observable {
      */
     public void changeAt(int id, AppContainer app) {
         currentConfig.changeAt(id, app);
+        setChanged();
+        notifyObservers(currentConfig);
     }
 
     /**
@@ -66,6 +70,8 @@ public class ConfigurationManager extends Observable {
      */
     public void removeAt(int id) {
         currentConfig.removeAt(id);
+        setChanged();
+        notifyObservers(currentConfig);
     }
 
     /**

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.List;
 import java.util.Observable;
@@ -15,7 +16,7 @@ import edu.hm.launcher.config.container.AppContainer;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final int REQUEST_APP_CHOOSE = 0;
+    public static final int REQUEST_APP_CHOOSE = 0;
 
     private final ConfigurationManager configurationManager = new ConfigurationManager(this);
 
@@ -65,6 +66,9 @@ public class MainActivity extends AppCompatActivity {
         final List<AppContainer> toShowApps = configurationManager.getApps();
 
         // Write there code to show the apps in toShowApps List!
+
+        // You can remove this afterwards
+        Toast.makeText(getApplicationContext(),"Apps changed, now " + toShowApps.size(), Toast.LENGTH_SHORT).show();
     }
 
 
