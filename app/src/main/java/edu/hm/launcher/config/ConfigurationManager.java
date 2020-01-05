@@ -44,6 +44,12 @@ public class ConfigurationManager extends Observable {
         addObserver(this::saveConfig);
     }
 
+    public ConfigurationManager(Activity mainActivity, ConfigurationContainer container) {
+        this.mainActivity = mainActivity;
+        addObserver(this::saveConfig);
+        currentConfig = container;
+    }
+
     /**
      * Gets all Apps as an unmodifiable list.
      * @return The list.

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".config.initial.InitialConfigActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/initial_config_manual"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onManualConfigurationButtonClick"
+            android:text="Manuelle Konfiguration" />
+
+        <Button
+            android:id="@+id/initial_config_helped"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="notImplementedButtonClick"
+            android:text="Geführt Konfiguration" />
+
+        <Button
+            android:id="@+id/initial_config_company"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="notImplementedButtonClick"
+            android:text="Organisation's Konfiguration" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

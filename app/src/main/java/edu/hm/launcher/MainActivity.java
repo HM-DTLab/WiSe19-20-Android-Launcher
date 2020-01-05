@@ -1,6 +1,8 @@
 package edu.hm.launcher;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -14,25 +16,39 @@ import java.util.Observable;
 import edu.hm.launcher.config.ConfigurationManager;
 import edu.hm.launcher.config.change.AppChooseActivity;
 import edu.hm.launcher.config.container.AppContainer;
+import edu.hm.launcher.config.initial.InitialConfigActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     public static final int REQUEST_APP_CHOOSE = 0;
+    public static final int REQUEST_INITIAL_CONFIG_SETUP = 1;
 
-    private final ConfigurationManager configurationManager = new ConfigurationManager(this);
+    private ConfigurationManager configurationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        configurationManager.addObserver(this::onConfigChanged);
-        try {
-            configurationManager.loadConfig();
-        } catch (IOException e) {
-            Toast.makeText(getApplicationContext(),
-                    "Could not load configuration: " + e.getMessage(),
-                    Toast.LENGTH_SHORT).show();
+        // Checks whether its the first time the app is started
+        SharedPreferences sharedPreferences = getApplicationContext()
+                .getSharedPreferences("initial", Context.MODE_PRIVATE);
+        boolean alreadySetup = sharedPreferences.getBoolean("setup", false);
+
+        if(alreadySetup) {
+            // If not simply load and initialize the configuration
+            configurationManager = new ConfigurationManager(this);
+            configurationManager.addObserver(this::onConfigChanged);
+            try {
+                configurationManager.loadConfig();
+            } catch (IOException e) {
+                Toast.makeText(getApplicationContext(),
+                        "Could not load configuration: " + e.getMessage(),
+                        Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Intent intent = new Intent(this, InitialConfigActivity.class);
+            startActivityForResult(intent, REQUEST_INITIAL_CONFIG_SETUP);
         }
     }
 
@@ -44,6 +60,16 @@ public class MainActivity extends AppCompatActivity {
                 String appPackageName = data.getStringExtra("app_package_name");
                 configurationManager.add(new AppContainer(appPackageName));
             }
+        } else if(requestCode == REQUEST_INITIAL_CONFIG_SETUP) {
+            if(resultCode == InitialConfigActivity.RESULT_OK) {
+                configurationManager = new ConfigurationManager(this, InitialConfigActivity.initialContainer);
+                SharedPreferences sharedPreferences = getApplicationContext()
+                        .getSharedPreferences("initial", Context.MODE_PRIVATE);
+                sharedPreferences.edit().putBoolean("setup", true).apply();
+            } else {
+                configurationManager = new ConfigurationManager(this);
+            }
+            configurationManager.addObserver(this::onConfigChanged);
         }
     }
 
