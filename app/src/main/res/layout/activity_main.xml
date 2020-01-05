@@ -10,8 +10,8 @@
         android:id="@+id/plusButton"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:src="@drawable/download"
-        android:onClick="onPlusBottonClick"/>
+        android:onClick="onPlusButtonClick"
+        android:src="@drawable/download" />
 
     <ImageView
         android:layout_width="200dp"

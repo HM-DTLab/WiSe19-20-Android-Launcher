@@ -31,7 +31,7 @@ public class ConfigurationManager extends Observable {
      */
     private Activity mainActivity;
 
-    ConfigurationManager(Activity mainActivity) {
+    public ConfigurationManager(Activity mainActivity) {
         this.mainActivity = mainActivity;
     }
 
