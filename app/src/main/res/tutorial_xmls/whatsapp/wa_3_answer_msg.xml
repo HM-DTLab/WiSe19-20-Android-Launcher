@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TutorialSequence>
+    <TutorialPart id='0'>
+        <Title>
+            Eine Nachricht beantworten
+        </Title>
+        <Image>
+            /tutorial_images/whatsapp/wa_new_msg.png
+        </Image>
+        <Description>
+            Haben Sie eine neue Nachricht erhalten, erscheint ein grüner Punkt an der
+            rechten eines Chats.
+        </Description>
+    </TutorialPart>
+    <TutorialPart id='1'>
+        <Title>
+            Eine Nachricht beantworten
+        </Title>
+        <Image>
+            /tutorial_images/whatsapp/wa_unread_msg.png
+        </Image>
+        <Description>
+            Sobald Sie den Chat öffnen, erscheint ganz unten der Balken „1 ungelesene Nachricht“
+            und darunter die neue Nachricht.
+            Um auf die Nachricht zu antworten, tippen Sie in das Eingabefeld und beginnen mit dem
+            Tippen Ihrer Nachricht. Abschließend drücken Sie auf das grüne Pfeil-Symbol,
+            um die Nachricht zu versenden.
+        </Description>
+    </TutorialPart>
+</TutorialSequence>

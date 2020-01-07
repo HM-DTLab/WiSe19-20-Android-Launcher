@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TutorialSequence>
+    <TutorialPart id='0'>
+        <Title>
+            Anrufe tätigen
+        </Title>
+        <Image>
+            /tutorial_images/whatsapp/wa_choose_call.png
+        </Image>
+        <Description>
+            Um eine Person über WhatsApp anzurufen, gibt es mehrere Möglichkeiten.
+            Die erste Möglichkeit ist, im Reiter „Chats“ einen vorhandenen Chat
+            mit einer Person auszuwählen.
+            Anschließend können Sie durch Drücken auf das Telefon-Symbol (2) einen normalen
+            Sprachanruf tätigen.
+            Alternativ wählen Sie das Icon der Videokamera (1) und starten einen Anruf mit Bild.
+            Das heißt, dass sich die Kamera auf der Vorderseite Ihres Handys aktiviert, und die
+            angerufene Person Sie sehen kann.
+        </Description>
+    </TutorialPart>
+    <TutorialPart id='1'>
+        <Title>
+            Anrufe tätigen
+        </Title>
+        <Image>
+            /tutorial_images/whatsapp/wa_last_calls.png
+        </Image>
+        <Description>
+            Als zweite Möglichkeit können Sie in den Reiter „Anrufe“ (1) wechseln.
+            Sie können hier entweder einen Kontakt aus der Liste (2) auswählen und anschließend
+            wieder zwischen dem Telefon-Symbol und dem Videokamera-Symbol wählen.
+            Als dritte Möglichkeit können Sie auf das grüne Telefon-Zeichen rechts unten (3) tippen.
+        </Description>
+    </TutorialPart>
+    <TutorialPart id='2'>
+        <Title>
+            Anrufe tätigen
+        </Title>
+        <Image>
+            /tutorial_images/whatsapp/wa_choose_contact_call.png
+        </Image>
+        <Description>
+            In der neuen Ansicht können Sie bei einer Person zwischen dem
+            Telefon-Symbol (1) und dem Videokamera-Symbol (2) wählen.
+        </Description>
+    </TutorialPart>
+</TutorialSequence>
