@@ -5,7 +5,7 @@
             Anrufe tätigen
         </Title>
         <Image>
-            /tutorial_images/whatsapp/wa_choose_call.png
+            /images/whatsapp/wa_choose_call.png
         </Image>
         <Description>
             Um eine Person über WhatsApp anzurufen, gibt es mehrere Möglichkeiten.
@@ -23,7 +23,7 @@
             Anrufe tätigen
         </Title>
         <Image>
-            /tutorial_images/whatsapp/wa_last_calls.png
+            /images/whatsapp/wa_last_calls.png
         </Image>
         <Description>
             Als zweite Möglichkeit können Sie in den Reiter „Anrufe“ (1) wechseln.
@@ -37,7 +37,7 @@
             Anrufe tätigen
         </Title>
         <Image>
-            /tutorial_images/whatsapp/wa_choose_contact_call.png
+            /images/whatsapp/wa_choose_contact_call.png
         </Image>
         <Description>
             In der neuen Ansicht können Sie bei einer Person zwischen dem

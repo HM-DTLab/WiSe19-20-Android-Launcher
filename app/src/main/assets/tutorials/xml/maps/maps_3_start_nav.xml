@@ -5,7 +5,7 @@
             Zu einem Ort navigieren lassen
         </Title>
         <Image>
-            /tutorial_images/maps/maps_waydescr.jpg
+            /images/maps/maps_waydescr.jpg
         </Image>
         <Description>
             Haben Sie einen Ort ausgewählt,
@@ -18,7 +18,7 @@
             Wegführung starten
         </Title>
         <Image>
-            /tutorial_images/maps/maps_route_car.jpg
+            /images/maps/maps_route_car.jpg
         </Image>
         <Description>
             Anschließend können Sie wählen, ob sie den Weg zum Beispiel mit dem Auto, den
@@ -32,7 +32,7 @@
             Wegführung starten
         </Title>
         <Image>
-            /tutorial_images/maps/maps_route_tram.jpg
+            /images/maps/maps_route_tram.jpg
         </Image>
         <Description>
             Haben Sie sich für die öffentlichen Verkehrsmittel entschieden, wählen Sie Ihre
@@ -44,7 +44,7 @@
             Wegführung starten
         </Title>
         <Image>
-            /tutorial_images/maps/maps_nav_car.jpg
+            /images/maps/maps_nav_car.jpg
         </Image>
         <Description>
             Der große Pfeil zeigt Ihnen jetzt das, was vor Ihnen liegt.

@@ -5,7 +5,7 @@
             Eine neue Nachricht schreiben
         </Title>
         <Image>
-            /tutorial_images/whatsapp/wa_overview_chat.png
+            /images/whatsapp/wa_overview_chat.png
         </Image>
         <Description>
             Wählen Sie im Reiter „Chats“(1) einen vorhandenen Chat aus (2).
@@ -18,7 +18,7 @@
             Eine neue Nachricht schreiben
         </Title>
         <Image>
-            /tutorial_images/whatsapp/wa_input_send.png
+            /images/whatsapp/wa_input_send.png
         </Image>
         <Description>
             Anschließend brauchen Sie nur noch in das Eingabefeld tippen und können mit dem Tippen

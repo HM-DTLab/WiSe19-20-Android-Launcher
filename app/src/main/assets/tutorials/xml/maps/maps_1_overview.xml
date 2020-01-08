@@ -5,7 +5,7 @@
             Übersicht
         </Title>
         <Image>
-            /tutorial_images/maps/maps_my_place.jpg
+            /images/maps/maps_my_place.jpg
         </Image>
         <Description>
             Wenn Sie die App starten, sehen Sie den Ort, an dem Sie sich aktuell befinden.
@@ -20,7 +20,7 @@
             Übersicht
         </Title>
         <Image>
-            /tutorial_images/maps/maps_compass.jpg
+            /images/maps/maps_compass.jpg
         </Image>
         <Description>
             Sollten Sie den blauen Punkt nicht sehen, drücken Sie auf das Kompass-Symbol (1), um

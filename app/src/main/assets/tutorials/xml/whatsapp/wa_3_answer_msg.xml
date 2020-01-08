@@ -5,7 +5,7 @@
             Eine Nachricht beantworten
         </Title>
         <Image>
-            /tutorial_images/whatsapp/wa_new_msg.png
+            /images/whatsapp/wa_new_msg.png
         </Image>
         <Description>
             Haben Sie eine neue Nachricht erhalten, erscheint ein grüner Punkt an der
@@ -17,7 +17,7 @@
             Eine Nachricht beantworten
         </Title>
         <Image>
-            /tutorial_images/whatsapp/wa_unread_msg.png
+            /images/whatsapp/wa_unread_msg.png
         </Image>
         <Description>
             Sobald Sie den Chat öffnen, erscheint ganz unten der Balken „1 ungelesene Nachricht“
