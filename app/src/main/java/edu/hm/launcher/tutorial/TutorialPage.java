@@ -9,8 +9,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import java.io.InputStream;
+
 import edu.hm.launcher.MainActivity;
 import edu.hm.launcher.R;
+import edu.hm.launcher.config.container.TutorialContainer;
+import edu.hm.launcher.config.parser.XmlParserTutorial;
 
 public class TutorialPage extends AppCompatActivity {
 
@@ -24,9 +28,11 @@ public class TutorialPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         typedArrayTitles = getResources().obtainTypedArray(R.array.tutorial_titles);
         typedArrayDescriptions = getResources().obtainTypedArray(R.array.tutorial_descriptions);
         typedArrayImages = getResources().obtainTypedArray(R.array.tutorial_images);
+        
         setContentView(R.layout.activity_tutorial_page);
         final String[][] descriptions = createArray(typedArrayDescriptions);
         final String[][] titles = createArray(typedArrayTitles);
