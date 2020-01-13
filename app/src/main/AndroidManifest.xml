@@ -10,8 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".tutorial.Tutorials"
-            android:parentActivityName=".tutorial.TutorialPage"></activity>
-        <activity android:name=".tutorial.TutorialPage" />
+            android:parentActivityName=".tutorial.FirstTutorialPage"></activity>
+        <activity android:name=".tutorial.FirstTutorialPage" />
         <activity android:name=".MainActivity">
 
             <intent-filter>
@@ -20,6 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".tutorial.SecondTutorialPage" />
     </application>
 
 </manifest>

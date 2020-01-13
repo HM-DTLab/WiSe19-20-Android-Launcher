@@ -16,7 +16,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import edu.hm.launcher.config.container.ConfigurationTutorialContainer;
 import edu.hm.launcher.config.container.TutorialContainer;
 
-public class XmlParserTutorial implements IConfigurationParser {
+public class XmlParserV2 implements IConfigurationParser {
 
     @Override
     public ConfigurationTutorialContainer parseConfig(InputStream xmlStream) throws IOException, ConfigParseException {

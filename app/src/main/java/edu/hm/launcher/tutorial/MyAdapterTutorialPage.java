@@ -15,16 +15,14 @@ import edu.hm.launcher.R;
 public class MyAdapterTutorialPage extends ArrayAdapter<String> {
 
     Context context;
-    String rTitle[][];
-    String description[][];
-    int image[][];
+    String title[];
+    int image[];
 
 
-    MyAdapterTutorialPage(Context c, String title[][],String description[][], int image[][])   {
-        super(c, R.layout.row, R.id.titleView, title[1]);
+    MyAdapterTutorialPage(Context c, String title[], int image[])   {
+        super(c, R.layout.row, R.id.titleView, title);
         this.context = c;
-        this.rTitle = title;
-        this.description = description;
+        this.title = title;
         this.image = image;
 
     }
@@ -36,11 +34,9 @@ public class MyAdapterTutorialPage extends ArrayAdapter<String> {
         View row = layoutInflater.inflate(R.layout.row, parent, false);
         ImageView images = row.findViewById(R.id.image);
         TextView myTutorialTitle = row.findViewById(R.id.titleView);
-        TextView myDescriptionTitle = row.findViewById(R.id.descriptionView);
 
-        images.setImageResource(image[position][0]);
-        myTutorialTitle.setText(rTitle[position][0]);
-        myDescriptionTitle.setText(description[position][0]);
+        images.setImageResource(image[position]);
+        myTutorialTitle.setText(title[position]);
 
         return row;
     }
