@@ -3,7 +3,8 @@ package edu.hm.launcher.config.change;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.ListView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import edu.hm.launcher.R;
 
@@ -17,10 +18,15 @@ public class AppChooseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_choose);
 
-        ListView apps = findViewById(R.id.choose_app_list_view);
-        apps.setAdapter(new AppChooseAdapter(this, applicationInfo -> {
+        RecyclerView recyclerView = findViewById(R.id.app_choose_recyclerview);
+        recyclerView.setHasFixedSize(true);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
+        recyclerView.setAdapter(new AppChooseAdapter(this, applicationInfo -> {
             Intent intent = new Intent();
-            intent.putExtra("app_package_name", applicationInfo.packageName);
+            intent.putExtra("app_package_name", applicationInfo.getPackageName());
             setResult(RESULT_OK, intent);
             finish();
         }));

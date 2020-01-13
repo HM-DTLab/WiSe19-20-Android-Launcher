@@ -1,6 +1,8 @@
 package edu.hm.launcher.config;
 
 import android.app.Activity;
+import android.content.pm.PackageManager;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -39,8 +41,11 @@ public class ConfigurationManager extends Observable {
      */
     private Activity mainActivity;
 
+    private final PackageManager packageManager;
+
     public ConfigurationManager(Activity mainActivity) {
         this.mainActivity = mainActivity;
+        packageManager = mainActivity.getPackageManager();
         addObserver(this::saveConfig);
     }
 
@@ -48,6 +53,8 @@ public class ConfigurationManager extends Observable {
         this.mainActivity = mainActivity;
         addObserver(this::saveConfig);
         currentConfig = container;
+        packageManager = mainActivity.getPackageManager();
+        setAllAppsPackageManager();
     }
 
     /**
@@ -64,6 +71,7 @@ public class ConfigurationManager extends Observable {
      */
     public void add(AppContainer container) {
         currentConfig.add(container);
+        setAppPackageManager(container);
         setChanged();
         notifyObservers(currentConfig);
     }
@@ -75,6 +83,7 @@ public class ConfigurationManager extends Observable {
      */
     public void changeAt(int id, AppContainer app) {
         currentConfig.changeAt(id, app);
+        setAppPackageManager(app);
         setChanged();
         notifyObservers(currentConfig);
     }
@@ -109,8 +118,24 @@ public class ConfigurationManager extends Observable {
         } catch (ConfigParseException e) {
             e.printStackTrace();
         }
+        setAllAppsPackageManager();
         setChanged();
         notifyObservers(currentConfig);
+    }
+
+    public void setAllAppsPackageManager() {
+        for (AppContainer app : getApps()) {
+            setAppPackageManager(app);
+        }
+    }
+
+    private void setAppPackageManager(AppContainer app) {
+        try {
+            app.setPackageManager(packageManager);
+        } catch (PackageManager.NameNotFoundException e) {
+            Toast.makeText(mainActivity.getApplicationContext(),
+                    e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
 
     /**
