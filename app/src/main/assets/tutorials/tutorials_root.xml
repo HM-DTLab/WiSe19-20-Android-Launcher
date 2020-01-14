@@ -2,10 +2,10 @@
 <Tutorials>
     <AppGroup folder="whatsapp" title="WhatsApp">
         <Tutorial file="/xml/whatsapp/wa_1_overview.xml" title="Übersicht"/>
-        <Tutorial file="/xml/whatsapp/wa_2_newMsg.xml" title="Eine neue Nachricht schreiben"/>
-        <Tutorial file="/xml/whatsapp/wa_3_answerMsg.xml" title="Eine Nachricht beantworten"/>
-        <Tutorial file="/xml/whatsapp/wa_4_doCall.xml" title="Einen Anruf tätigen"/>
-        <Tutorial file="/xml/whatsapp/wa_5_getCall.xml" title="Einen Anruf annehmen"/>
+        <Tutorial file="/xml/whatsapp/wa_2_new_msg.xml" title="Eine neue Nachricht schreiben"/>
+        <Tutorial file="/xml/whatsapp/wa_3_answer_msg.xml" title="Eine Nachricht beantworten"/>
+        <Tutorial file="/xml/whatsapp/wa_4_do_Call.xml" title="Einen Anruf tätigen"/>
+        <Tutorial file="/xml/whatsapp/wa_5_get_Call.xml" title="Einen Anruf annehmen"/>
     </AppGroup>
     <AppGroup folder="maps" title="GoogleMaps">
         <Tutorial file="/xml/maps/maps_1_overview.xml" title="Übersicht"/>

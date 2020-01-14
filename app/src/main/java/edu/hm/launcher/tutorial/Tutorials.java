@@ -1,6 +1,8 @@
 package edu.hm.launcher.tutorial;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -43,7 +45,11 @@ public class Tutorials extends AppCompatActivity {
 
         ArrayList<String> descriptionList = new ArrayList<>();
 
+        Log.d("size", "" + tutorialContainerList.size());
+
+
         for (int index = 0; index < tutorialContainerList.size(); index++)  {
+            Log.d("index", index + "");
             descriptionList.add(tutorialContainerList.get(index).getDescription());
         }
 
@@ -66,10 +72,10 @@ public class Tutorials extends AppCompatActivity {
             images[index] = imageList.get(index);
         }
 
-        int[] imageAsInt = null;
+        Drawable[] drawables = null;
 
         try {
-            imageAsInt = imageAsInt(images);
+            drawables = imageAsDrawable(images);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -77,7 +83,7 @@ public class Tutorials extends AppCompatActivity {
         setContentView(R.layout.activity_tutorials);
 
         listView = findViewById(R.id.tutorial_listView);
-        MyAdapterTutorials adapter = new MyAdapterTutorials(this, description, imageAsInt);
+        MyAdapterTutorials adapter = new MyAdapterTutorials(this, description, drawables);
         listView.setAdapter(adapter);
     }
 
@@ -88,18 +94,17 @@ public class Tutorials extends AppCompatActivity {
         return tutorialContainer.getTutorials();
     }
 
-    private int[] imageAsInt(String[] images) throws IOException {
+    private Drawable[] imageAsDrawable(String[] images) throws IOException {
 
-        Log.d("Imagepath", "tutorials" + images[0]);
-
-
-        int[] imagesAsInt = new int[images.length];
+        Drawable[] drawables = new Drawable[images.length];
 
         for (int index = 0; index < images.length; index++) {
-            imagesAsInt[index] = getAssets().open("tutorials" + images[index]).read();
-            Log.d("imageRead", "" + imagesAsInt[index]);
+            InputStream inputStream = getAssets().open("tutorials" + images[index]);
+            Drawable drawable = Drawable.createFromStream(inputStream, null);
+            Log.d("imageRead", "" + drawable);
+            drawables[index] = drawable;
         }
-        return imagesAsInt;
+        return drawables;
     }
 
 }

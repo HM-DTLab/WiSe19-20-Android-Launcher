@@ -4,8 +4,7 @@
         <Title>
             Übersicht
         </Title>
-        <Image>/images/whatsapp/wa_overview.png
-        </Image>
+        <Image>/images/whatsapp/wa_overview.png</Image>
         <Description>Wenn Sie WhatsApp öffnen, sehen Sie mehrere Dinge.
             Die Bereiche „Chats“, „Status“ und „Anrufe“ (1).
             Eine Liste mit Ihren Chats (2).
@@ -15,7 +14,6 @@
             Chats (2) sind schriftliche Gespräche zwischen Ihnen und einer Person, oder zwischen
             Ihnen und einer Gruppe.
             Mit dem Nachricht-Symbol können Sie zum Beispiel eine neue Nachricht an eine Person
-            schreiben.
-        </Description>
+            schreiben.</Description>
     </TutorialPart>
 </TutorialSequence>
