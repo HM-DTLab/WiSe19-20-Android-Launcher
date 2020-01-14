@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Tutorials>
-    <AppGroup folder="whatsapp" title="WhatsApp">
+    <AppGroup folder="whatsapp" title="WhatsApp" image="/images/whatsapp/whatsapp.png">
         <Tutorial file="/xml/whatsapp/wa_1_overview.xml" title="Übersicht"/>
         <Tutorial file="/xml/whatsapp/wa_2_new_msg.xml" title="Eine neue Nachricht schreiben"/>
         <Tutorial file="/xml/whatsapp/wa_3_answer_msg.xml" title="Eine Nachricht beantworten"/>
         <Tutorial file="/xml/whatsapp/wa_4_do_Call.xml" title="Einen Anruf tätigen"/>
         <Tutorial file="/xml/whatsapp/wa_5_get_Call.xml" title="Einen Anruf annehmen"/>
     </AppGroup>
-    <AppGroup folder="maps" title="GoogleMaps">
+    <AppGroup folder="maps" title="GoogleMaps" image="/images/maps/googlemaps.jpg">
         <Tutorial file="/xml/maps/maps_1_overview.xml" title="Übersicht"/>
         <Tutorial file="/xml/maps/maps_2_search_place.xml" title="Einen Ort suchen"/>
         <Tutorial file="/xml/maps/maps_3_start_nav.xml" title="Zu einem Ort navigieren lassen"/>

@@ -1,5 +1,6 @@
 package edu.hm.launcher.config.parser;
 
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 
 import org.w3c.dom.Document;
@@ -44,6 +45,7 @@ public class XmlParserV2 implements IConfigurationParser {
                     final Element tutorialElement = (Element) tutorialList.item(i);
                     final String title = tutorialElement.getAttribute("title");
                     final String folder = tutorialElement.getAttribute("folder");
+                    final String drawable = tutorialElement.getAttribute("image");
 
                     final NodeList content = tutorialElement.getElementsByTagName("Tutorial");
 
@@ -57,7 +59,7 @@ public class XmlParserV2 implements IConfigurationParser {
                         tutorialTitle[index] = contentElement.getAttribute("title");
                     }
 
-                    tutorials[i] = new TutorialContainer(title, folder, tutorialTitle, file);
+                    tutorials[i] = new TutorialContainer(title, folder, tutorialTitle, file, drawable);
                 }
             }
 

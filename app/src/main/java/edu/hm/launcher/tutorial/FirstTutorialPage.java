@@ -2,6 +2,7 @@ package edu.hm.launcher.tutorial;
 
 import android.content.Intent;
 import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -51,7 +52,6 @@ public class FirstTutorialPage extends AppCompatActivity {
 
         for (int index = 0; index < tutorialContainerList.size(); index++)  {
             titleList.add(tutorialContainerList.get(index).getTutorialAppTitle());
-
         }
 
         final String[] titles = new String[titleList.size()];
@@ -60,10 +60,24 @@ public class FirstTutorialPage extends AppCompatActivity {
             titles[index] = titleList.get(index);
         }
 
-        int[] images = {R.drawable.whatsapp,R.drawable.googlemaps};
+        ArrayList<String> imagesList = new ArrayList<>();
+
+        for (int index = 0; index < tutorialContainerList.size(); index++)  {
+            imagesList.add(tutorialContainerList.get(index).getTutorialDrawable());
+        }
+
+        Drawable[] drawables = new Drawable[titleList.size()];
+
+        for (int index = 0; index < titleList.size(); index++)  {
+            try {
+                drawables[index] = imageAsDrawable(imagesList.get(index));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
         listView = findViewById(R.id.listView);
-        MyAdapterTutorialPage adapter = new MyAdapterTutorialPage(this, titles, images);
+        MyAdapterTutorialPage adapter = new MyAdapterTutorialPage(this, titles, drawables);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -74,7 +88,7 @@ public class FirstTutorialPage extends AppCompatActivity {
 
                 intent.putExtra("files", tutorialContainerList.get(position).getTutorialFiles());
                 intent.putExtra("titles", tutorialContainerList.get(position).getTutorialTitle());
-                Log.d("titles", tutorialContainerList.get(position).getTutorialTitle().length+"");
+                intent.putExtra("drawable", tutorialContainerList.get(position).getTutorialDrawable());
 
                 startActivity(intent);
 
@@ -106,6 +120,12 @@ public class FirstTutorialPage extends AppCompatActivity {
         XmlParserV2 xmlParserV2 = new XmlParserV2();
         ConfigurationTutorialContainer tutorialContainer = xmlParserV2.parseConfig(xmlStream);
         return tutorialContainer.getTutorials();
+    }
+
+    private Drawable imageAsDrawable(String image) throws IOException {
+        InputStream inputStream = getAssets().open("tutorials" + image);
+        return Drawable.createFromStream(inputStream, null);
+
     }
 
 

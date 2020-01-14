@@ -1,6 +1,7 @@
 package edu.hm.launcher.tutorial;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -17,10 +18,10 @@ public class MyAdapterTutorialPage extends ArrayAdapter<String> {
 
     Context context;
     String title[];
-    int image[];
+    Drawable image[];
 
 
-    MyAdapterTutorialPage(Context c, String title[], int image[])   {
+    MyAdapterTutorialPage(Context c, String title[], Drawable image[])   {
         super(c, R.layout.row, R.id.titleView, title);
         this.context = c;
         this.title = title;
@@ -36,7 +37,7 @@ public class MyAdapterTutorialPage extends ArrayAdapter<String> {
         ImageView images = row.findViewById(R.id.image);
         TextView myTutorialTitle = row.findViewById(R.id.titleView);
 
-        images.setImageResource(image[position]);
+        images.setImageDrawable(image[position]);
         myTutorialTitle.setText(title[position]);
 
         return row;
