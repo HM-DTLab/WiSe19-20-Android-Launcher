@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="tutorial_images">
+        <item>@array/tutorial_images_maps</item>
+        <item>@array/tutorial_images_notizen</item>
+    </array>
+
+    <integer-array name="tutorial_images_maps">
+        <item>@drawable/googlemaps</item>
+        <item>@drawable/googlemaps</item>
+    </integer-array>
+    <integer-array name="tutorial_images_notizen">
+        <item>@drawable/note</item>
+        <item>@drawable/note</item>
+    </integer-array>
+</resources>

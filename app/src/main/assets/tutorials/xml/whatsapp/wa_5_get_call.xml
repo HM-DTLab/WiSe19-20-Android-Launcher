@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TutorialSequence>
+    <TutorialPart id='0'>
+        <Title>
+            Einen Anruf annehmen
+        </Title>
+        <Image>/images/whatsapp/wa_call.png</Image>
+        <Description>Um einen eingehenden Anruf anzunehmen, halten Sie das grüne Telefon-Zeichen gedrückt, und ziehen es nach oben. Um den Anruf abzulehnen, halten sie das rote Telefon-Zeichen gedrückt und ziehen es nach oben.</Description>
+    </TutorialPart>
+</TutorialSequence>
