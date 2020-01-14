@@ -4,11 +4,14 @@ import android.content.Intent;
 import android.content.res.TypedArray;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -42,18 +45,22 @@ public class FirstTutorialPage extends AppCompatActivity {
 
 
         setContentView(R.layout.activity_tutorial_page);
+        Log.d("Test","Just a Test");
 
 
         ArrayList<String> titleList = new ArrayList<>();
 
+        Log.d("Size",""+tutorialContainerList.size());
         for (int index = 0; index < tutorialContainerList.size(); index++)  {
             titleList.add(tutorialContainerList.get(index).getTutorialAppTitle());
+
         }
 
         final String[] titles = new String[titleList.size()];
 
         for (int index = 0; index < titleList.size(); index++){
             titles[index] = titleList.get(index);
+            Log.d("Title",titleList.get(index));
         }
 
         int[] images = {R.drawable.whatsapp,R.drawable.googlemaps};
@@ -96,8 +103,9 @@ public class FirstTutorialPage extends AppCompatActivity {
     }
 
     private List<TutorialContainer> getTutorialContainer() throws IOException, ConfigParseException {
-        InputStream xmlStream = getAssets().open("xml/config_template.xml");
+        InputStream xmlStream = this.getAssets().open("tutorials/tutorials_root.xml");
         XmlParserV2 xmlParserV2 = new XmlParserV2();
+        Log.d("In Methode", "HERE");
         ConfigurationTutorialContainer tutorialContainer = xmlParserV2.parseConfig(xmlStream);
         return tutorialContainer.getTutorials();
     }
