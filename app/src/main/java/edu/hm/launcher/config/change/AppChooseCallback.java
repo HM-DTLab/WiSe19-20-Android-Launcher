@@ -1,6 +1,6 @@
 package edu.hm.launcher.config.change;
 
-import android.content.pm.ApplicationInfo;
+import edu.hm.launcher.config.container.AppContainer;
 
 @FunctionalInterface
 public interface AppChooseCallback {
@@ -9,6 +9,6 @@ public interface AppChooseCallback {
      * When an app was chosen.
      * @param applicationInfo The chosen App.
      */
-    void onAppChosen(ApplicationInfo applicationInfo);
+    void onAppChosen(AppContainer applicationInfo);
 
 }
