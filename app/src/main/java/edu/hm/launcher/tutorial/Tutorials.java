@@ -3,6 +3,7 @@ package edu.hm.launcher.tutorial;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
 
 import java.io.IOException;
@@ -33,7 +34,7 @@ public class Tutorials extends AppCompatActivity {
         String fileName = bundle.getString("file");
 
         try {
-            tutorialContainerList = getTutorialContainer(fileName);
+            tutorialContainerList = getTutorialContainer("tutorials" + fileName);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ConfigParseException e) {
@@ -56,7 +57,7 @@ public class Tutorials extends AppCompatActivity {
         ArrayList<String> imageList = new ArrayList<>();
 
         for (int index = 0; index < tutorialContainerList.size(); index++)  {
-            imageList.add(tutorialContainerList.get(index).getDescription());
+            imageList.add(tutorialContainerList.get(index).getImages());
         }
 
         final String[] images = new String[imageList.size()];
@@ -89,10 +90,14 @@ public class Tutorials extends AppCompatActivity {
 
     private int[] imageAsInt(String[] images) throws IOException {
 
+        Log.d("Imagepath", "tutorials" + images[0]);
+
+
         int[] imagesAsInt = new int[images.length];
 
         for (int index = 0; index < images.length; index++) {
-            imagesAsInt[index] = getAssets().open(images[index]).read();
+            imagesAsInt[index] = getAssets().open("tutorials" + images[index]).read();
+            Log.d("imageRead", "" + imagesAsInt[index]);
         }
         return imagesAsInt;
     }

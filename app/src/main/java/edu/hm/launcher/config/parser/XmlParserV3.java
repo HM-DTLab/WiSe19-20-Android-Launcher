@@ -1,5 +1,7 @@
 package edu.hm.launcher.config.parser;
 
+import android.util.Log;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -42,8 +44,13 @@ public class XmlParserV3 implements IConfigurationParser {
                     // Get node and parse id and name
                     final Element tutorialElement = (Element) tutorialList.item(i);
 
-                    final String image = tutorialElement.getElementsByTagName("Image").toString();
-                    final String description = tutorialElement.getElementsByTagName("Description").toString();
+                    final NodeList imageContent = tutorialElement.getElementsByTagName("Image");
+                    final Element contentElementImage = (Element) imageContent.item(0);
+                    final String image = contentElementImage.getTextContent();
+
+                    final NodeList descriptionContent = tutorialElement.getElementsByTagName("Description");
+                    final Element contentElementDescription = (Element) descriptionContent.item(0);
+                    final String description = contentElementDescription.getTextContent();
 
                     tutorials[i] = new SingleTutorialContainer(image, description);
                 }

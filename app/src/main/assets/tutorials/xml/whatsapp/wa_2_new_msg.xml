@@ -4,11 +4,9 @@
         <Title>
             Eine neue Nachricht schreiben
         </Title>
-        <Image>
-            /images/whatsapp/wa_overview_chat.png
+        <Image>/images/whatsapp/wa_overview_chat.png
         </Image>
-        <Description>
-            Wählen Sie im Reiter „Chats“(1) einen vorhandenen Chat aus (2).
+        <Description>Wählen Sie im Reiter „Chats“(1) einen vorhandenen Chat aus (2).
             Oder drücken Sie auf das grüne Nachricht-Symbol rechts unten (3) und wählen aus der
             Liste mit allen Personen eine Person aus.
         </Description>
@@ -17,11 +15,9 @@
         <Title>
             Eine neue Nachricht schreiben
         </Title>
-        <Image>
-            /images/whatsapp/wa_input_send.png
+        <Image>/images/whatsapp/wa_input_send.png
         </Image>
-        <Description>
-            Anschließend brauchen Sie nur noch in das Eingabefeld tippen und können mit dem Tippen
+        <Description>Anschließend brauchen Sie nur noch in das Eingabefeld tippen und können mit dem Tippen
             beginnen.
             Um die Nachricht zu versenden, drücken Sie auf das grüne Pfeil-Symbol.
         </Description>

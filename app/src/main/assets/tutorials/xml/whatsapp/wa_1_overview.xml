@@ -4,11 +4,9 @@
         <Title>
             Übersicht
         </Title>
-        <Image>
-            /images/whatsapp/wa_overview.png
+        <Image>/images/whatsapp/wa_overview.png
         </Image>
-        <Description>
-            Wenn Sie WhatsApp öffnen, sehen Sie mehrere Dinge.
+        <Description>Wenn Sie WhatsApp öffnen, sehen Sie mehrere Dinge.
             Die Bereiche „Chats“, „Status“ und „Anrufe“ (1).
             Eine Liste mit Ihren Chats (2).
             Und ein grünes Nachricht-Symbol am rechten unteren Rand des Bildschirms (3).

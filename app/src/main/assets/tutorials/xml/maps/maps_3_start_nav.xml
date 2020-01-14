@@ -4,11 +4,9 @@
         <Title>
             Zu einem Ort navigieren lassen
         </Title>
-        <Image>
-            /images/maps/maps_waydescr.jpg
+        <Image>/images/maps/maps_waydescr.jpg
         </Image>
-        <Description>
-            Haben Sie einen Ort ausgewählt,
+        <Description>Haben Sie einen Ort ausgewählt,
             drücken Sie auf den Button mit der Aufschrift „Wegbeschreibung“.
             Die App berechnet nun mehrere Wege von ihrem Standort zu dem gewählten Ort.
         </Description>
@@ -17,11 +15,9 @@
         <Title>
             Wegführung starten
         </Title>
-        <Image>
-            /images/maps/maps_route_car.jpg
+        <Image>/images/maps/maps_route_car.jpg
         </Image>
-        <Description>
-            Anschließend können Sie wählen, ob sie den Weg zum Beispiel mit dem Auto, den
+        <Description>Anschließend können Sie wählen, ob sie den Weg zum Beispiel mit dem Auto, den
             öffentlichen Verkehrsmitteln oder zu Fuß zurücklegen möchten.
             Haben Sie sich für Auto, oder zu Fuß entschieden,
             drücken Sie abschließend auf den Button „Start“.
@@ -31,11 +27,9 @@
         <Title>
             Wegführung starten
         </Title>
-        <Image>
-            /images/maps/maps_route_tram.jpg
+        <Image>/images/maps/maps_route_tram.jpg
         </Image>
-        <Description>
-            Haben Sie sich für die öffentlichen Verkehrsmittel entschieden, wählen Sie Ihre
+        <Description>Haben Sie sich für die öffentlichen Verkehrsmittel entschieden, wählen Sie Ihre
             gewünschte Verbindung und klicken Sie dann auf "Start".
         </Description>
     </TutorialPart>
@@ -43,11 +37,9 @@
         <Title>
             Wegführung starten
         </Title>
-        <Image>
-            /images/maps/maps_nav_car.jpg
+        <Image>/images/maps/maps_nav_car.jpg
         </Image>
-        <Description>
-            Der große Pfeil zeigt Ihnen jetzt das, was vor Ihnen liegt.
+        <Description>Der große Pfeil zeigt Ihnen jetzt das, was vor Ihnen liegt.
             Wenn Sie gehen/fahren, bewegt sich der Pfeil automatisch mit.
             Um an Ihr Ziel zu gelangen, folgen Sie der blauen Linie
             und befolgen die Anweisungen auf dem Bildschirm.

@@ -4,11 +4,9 @@
         <Title>
             Übersicht
         </Title>
-        <Image>
-            /images/maps/maps_my_place.jpg
+        <Image>/images/maps/maps_my_place.jpg
         </Image>
-        <Description>
-            Wenn Sie die App starten, sehen Sie den Ort, an dem Sie sich aktuell befinden.
+        <Description>Wenn Sie die App starten, sehen Sie den Ort, an dem Sie sich aktuell befinden.
             Der blaue Punkt gibt dabei Ihren genauen Standort an.
             Um die Karte zu vergrößern, drücken Sie mit zwei Fingern gleichzeitig auf das Display
             und schieben Sie zusammen (wegzoomen).
@@ -19,11 +17,9 @@
         <Title>
             Übersicht
         </Title>
-        <Image>
-            /images/maps/maps_compass.jpg
+        <Image>/images/maps/maps_compass.jpg
         </Image>
-        <Description>
-            Sollten Sie den blauen Punkt nicht sehen, drücken Sie auf das Kompass-Symbol (1), um
+        <Description>Sollten Sie den blauen Punkt nicht sehen, drücken Sie auf das Kompass-Symbol (1), um
             die Ansicht auf Ihren Standort zu zentrieren.
         </Description>
     </TutorialPart>

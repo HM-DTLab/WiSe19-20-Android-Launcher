@@ -3,6 +3,7 @@ package edu.hm.launcher.tutorial;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -21,7 +22,6 @@ import edu.hm.launcher.config.parser.XmlParserV2;
 public class SecondTutorialPage extends AppCompatActivity {
 
     ListView listView;
-    List<TutorialContainer> tutorialContainerList;
 
 
     @Override
@@ -36,7 +36,8 @@ public class SecondTutorialPage extends AppCompatActivity {
         String[] titles = intent.getStringArrayExtra("titles");
 
 
-        int[] images = {R.drawable.whatsapp, R.drawable.whatsapp, R.drawable.whatsapp, R.drawable.whatsapp};
+
+        int[] images = {R.drawable.whatsapp, R.drawable.whatsapp, R.drawable.whatsapp, R.drawable.whatsapp, R.drawable.whatsapp};
 
         listView = findViewById(R.id.listView);
         MyAdapterTutorialPage adapter = new MyAdapterTutorialPage(this, titles, images);

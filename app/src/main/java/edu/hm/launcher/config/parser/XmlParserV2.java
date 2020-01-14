@@ -25,7 +25,6 @@ public class XmlParserV2 implements IConfigurationParser {
 
         // Creates new container
         ConfigurationTutorialContainer container = new ConfigurationTutorialContainer();
-        Log.d("In Parser","in pareser");
 
         try {
             // Build document from stream
@@ -38,7 +37,6 @@ public class XmlParserV2 implements IConfigurationParser {
             // Create an tutorials buffer to sort them
             TutorialContainer[] tutorials = new TutorialContainer[tutorialList.getLength()];
 
-            Log.d("For length", ""+tutorialList.getLength());
 
             for (int i = 0; i < tutorialList.getLength(); i++) {
                 if (tutorialList.item(i).getNodeType() == Node.ELEMENT_NODE) {
@@ -47,24 +45,19 @@ public class XmlParserV2 implements IConfigurationParser {
                     final String title = tutorialElement.getAttribute("title");
                     final String folder = tutorialElement.getAttribute("folder");
 
-                    Log.d("title from Parser", title);
-                    Log.d("index", "" + i);
+                    final NodeList content = tutorialElement.getElementsByTagName("Tutorial");
 
-                    final NodeList fileNode = tutorialElement.getElementsByTagName("file");
-                    final NodeList tutorialTitleNode = tutorialElement.getElementsByTagName("title");
 
-                    String[] file = new String[fileNode.getLength()];
-                    String[] tutorialTitle = new String[tutorialTitleNode.getLength()];
+                    String[] file = new String[content.getLength()];
+                    String[] tutorialTitle = new String[content.getLength()];
 
-                    for (int index = 0; index < fileNode.getLength(); index++)  {
-                        file[index] = fileNode.item(index).toString();
+                    for (int index = 0; index < content.getLength(); index++)   {
+                        final Element contentElement = (Element) content.item(index);
+                        file[index] = contentElement.getAttribute("file");
+                        tutorialTitle[index] = contentElement.getAttribute("title");
                     }
 
-                    for (int index = 0; index < tutorialTitleNode.getLength(); index++) {
-                        tutorialTitle[index] = tutorialTitleNode.item(index).toString();
-                    }
-
-                    tutorials[i] = new TutorialContainer(title, folder, file, tutorialTitle);
+                    tutorials[i] = new TutorialContainer(title, folder, tutorialTitle, file);
                 }
             }
 
