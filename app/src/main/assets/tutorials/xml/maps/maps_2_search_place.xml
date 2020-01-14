@@ -5,17 +5,13 @@
             Einen Ort suchen
         </Title>
         <Image>/images/maps/maps_search_input.jpg</Image>
-        <Description>Um einen Ort zu suchen, drücken Sie in das Eingabefeld (roter Bereich), sodass sich eine
-            Ansicht öffnet, in der Sie tippen können.</Description>
+        <Description>Um einen Ort zu suchen, drücken Sie in das Eingabefeld (roter Bereich), sodass sich eine Ansicht öffnet, in der Sie tippen können.</Description>
     </TutorialPart>
     <TutorialPart id='1'>
         <Title>
             Ort suchen
         </Title>
         <Image>/images/maps/maps_search_autocomplete.jpg</Image>
-        <Description>Geben Sie hier einen Suchbegriff (zum Beispiel „Hauptbahnhof“) oder eine Adresse
-            (zum Beispiel „Bayerstraße 10“) ein.
-            Bereits unterm Tippen können Sie aus den Vorschlägen den gewünschten Ort auswählen.
-            Dieser wird dann auf der Karte durch einen roten Punkt angezeigt.</Description>
+        <Description>Geben Sie hier einen Suchbegriff (zum Beispiel „Hauptbahnhof“) oder eine Adresse (zum Beispiel „Bayerstraße 10“) ein. Bereits unterm Tippen können Sie aus den Vorschlägen den gewünschten Ort auswählen. Dieser wird dann auf der Karte durch einen roten Punkt angezeigt.</Description>
     </TutorialPart>
 </TutorialSequence>
