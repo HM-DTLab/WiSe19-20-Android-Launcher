@@ -44,7 +44,7 @@ public class ConfigurationContainer {
         for (int i = 0; i < apps.size(); i++) {
             Element appElement = document.createElement("app");
             appElement.setAttribute("id", String.valueOf(i));
-            appElement.setTextContent(apps.get(i).getAppName());
+            appElement.setTextContent(apps.get(i).getPackageName());
             confRoot.appendChild(appElement);
         }
         return new DOMSource(document);

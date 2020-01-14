@@ -30,7 +30,7 @@ public class ConfigurationContainerTest {
 
         container.add(new AppContainer("test1"));
 
-        assertEquals("test1", container.getApps().get(0).getAppName());
+        assertEquals("test1", container.getApps().get(0).getPackageName());
     }
 
     @Test
@@ -67,7 +67,7 @@ public class ConfigurationContainerTest {
         container.add(new AppContainer("test1"));
         container.changeAt(0, new AppContainer("test2"));
 
-        assertEquals("test2", container.getApps().get(0).getAppName());
+        assertEquals("test2", container.getApps().get(0).getPackageName());
     }
 
     @Test
@@ -89,9 +89,9 @@ public class ConfigurationContainerTest {
         container.add(new AppContainer("test2"));
         container.add(new AppContainer("test3"));
 
-        assertEquals("test1", container.getApps().get(0).getAppName());
-        assertEquals("test2", container.getApps().get(1).getAppName());
-        assertEquals("test3", container.getApps().get(2).getAppName());
+        assertEquals("test1", container.getApps().get(0).getPackageName());
+        assertEquals("test2", container.getApps().get(1).getPackageName());
+        assertEquals("test3", container.getApps().get(2).getPackageName());
     }
 
     @Test
@@ -117,9 +117,9 @@ public class ConfigurationContainerTest {
         container.changeAt(1, new AppContainer("test1"));
         container.changeAt(2, new AppContainer("test2"));
 
-        assertEquals("test1", container.getApps().get(1).getAppName());
-        assertEquals("test2", container.getApps().get(2).getAppName());
-        assertEquals("test3", container.getApps().get(0).getAppName());
+        assertEquals("test1", container.getApps().get(1).getPackageName());
+        assertEquals("test2", container.getApps().get(2).getPackageName());
+        assertEquals("test3", container.getApps().get(0).getPackageName());
     }
 
     @Test

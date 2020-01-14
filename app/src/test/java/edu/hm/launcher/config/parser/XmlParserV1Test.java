@@ -29,7 +29,7 @@ public class XmlParserV1Test {
 
         ConfigurationContainer config = parser.parseConfig(xmlStream);
 
-        assertEquals("com.test1", config.getApps().get(0).getAppName());
+        assertEquals("com.test1", config.getApps().get(0).getPackageName());
     }
 
     @Test
@@ -49,9 +49,9 @@ public class XmlParserV1Test {
 
         ConfigurationContainer config = parser.parseConfig(xmlStream);
 
-        assertEquals("com.test1", config.getApps().get(0).getAppName());
-        assertEquals("com.test2", config.getApps().get(1).getAppName());
-        assertEquals("com.test3", config.getApps().get(2).getAppName());
+        assertEquals("com.test1", config.getApps().get(0).getPackageName());
+        assertEquals("com.test2", config.getApps().get(1).getPackageName());
+        assertEquals("com.test3", config.getApps().get(2).getPackageName());
     }
 
     @Test(expected = ConfigParseException.class)
