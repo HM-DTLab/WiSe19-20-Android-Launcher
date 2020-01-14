@@ -1,7 +1,5 @@
 package edu.hm.launcher.config.parser;
 
-import android.util.Log;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -16,9 +14,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import edu.hm.launcher.config.container.ConfigurationSingleTutorialContainer;
-import edu.hm.launcher.config.container.ConfigurationTutorialContainer;
 import edu.hm.launcher.config.container.SingleTutorialContainer;
-import edu.hm.launcher.config.container.TutorialContainer;
 
 public class XmlParserV3 implements IConfigurationParser {
 
@@ -41,7 +37,7 @@ public class XmlParserV3 implements IConfigurationParser {
 
             for (int i = 0; i < tutorialList.getLength(); i++) {
                 if (tutorialList.item(i).getNodeType() == Node.ELEMENT_NODE) {
-                    // Get node and parse id and name
+
                     final Element tutorialElement = (Element) tutorialList.item(i);
 
                     final NodeList imageContent = tutorialElement.getElementsByTagName("Image");

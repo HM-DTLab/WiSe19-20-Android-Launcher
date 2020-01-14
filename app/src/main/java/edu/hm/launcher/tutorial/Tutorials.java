@@ -1,11 +1,8 @@
 package edu.hm.launcher.tutorial;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ListView;
 
 import java.io.IOException;
@@ -15,11 +12,8 @@ import java.util.List;
 
 import edu.hm.launcher.R;
 import edu.hm.launcher.config.container.ConfigurationSingleTutorialContainer;
-import edu.hm.launcher.config.container.ConfigurationTutorialContainer;
 import edu.hm.launcher.config.container.SingleTutorialContainer;
-import edu.hm.launcher.config.container.TutorialContainer;
 import edu.hm.launcher.config.parser.ConfigParseException;
-import edu.hm.launcher.config.parser.XmlParserV2;
 import edu.hm.launcher.config.parser.XmlParserV3;
 
 public class Tutorials extends AppCompatActivity {
@@ -45,11 +39,8 @@ public class Tutorials extends AppCompatActivity {
 
         ArrayList<String> descriptionList = new ArrayList<>();
 
-        Log.d("size", "" + tutorialContainerList.size());
-
 
         for (int index = 0; index < tutorialContainerList.size(); index++)  {
-            Log.d("index", index + "");
             descriptionList.add(tutorialContainerList.get(index).getDescription());
         }
 
@@ -101,7 +92,6 @@ public class Tutorials extends AppCompatActivity {
         for (int index = 0; index < images.length; index++) {
             InputStream inputStream = getAssets().open("tutorials" + images[index]);
             Drawable drawable = Drawable.createFromStream(inputStream, null);
-            Log.d("imageRead", "" + drawable);
             drawables[index] = drawable;
         }
         return drawables;
