@@ -14,8 +14,19 @@ public class AppContainer {
     private Drawable drawable = null;
     private String label = null;
 
+    public final boolean isAddNewApp;
+
     public AppContainer(String appName) {
         this.packageName = appName;
+        isAddNewApp = false;
+    }
+
+    /**
+     * Empty AppContainer for adding a new app
+     */
+    public AppContainer() {
+        packageName = "ADD-NEW-APP-CONTAINER";
+        this.isAddNewApp = true;
     }
 
     public String getPackageName() {

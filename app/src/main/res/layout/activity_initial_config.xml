@@ -13,21 +13,24 @@
         <Button
             android:id="@+id/initial_config_manual"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:onClick="onManualConfigurationButtonClick"
             android:text="Manuelle Konfiguration" />
 
         <Button
             android:id="@+id/initial_config_helped"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:onClick="notImplementedButtonClick"
             android:text="Geführt Konfiguration" />
 
         <Button
             android:id="@+id/initial_config_company"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:onClick="notImplementedButtonClick"
             android:text="Organisation's Konfiguration" />
     </LinearLayout>

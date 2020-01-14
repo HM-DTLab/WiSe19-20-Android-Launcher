@@ -2,26 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
     android:orientation="vertical">
-
 
     <GridView
         android:id="@+id/grd_allApps"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#000"
         android:horizontalSpacing="1dp"
-        android:verticalSpacing="1dp"
-        android:numColumns="2"/>
+        android:numColumns="2"
+        android:verticalSpacing="1dp" />
 
-    <ImageView
-        android:id="@+id/plus_button"
-        android:src="@drawable/plus"
-        android:layout_width="170dp"
-        android:layout_height="200dp"
-        android:layout_gravity="center_horizontal"
-        android:onClick="onPlusButtonClick"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"/>
 </RelativeLayout>

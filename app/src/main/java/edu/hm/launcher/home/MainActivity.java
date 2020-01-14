@@ -4,17 +4,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.ContextMenu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -39,22 +38,24 @@ public class MainActivity extends AppCompatActivity {
 
     private ConfigurationManager configurationManager;
 
-    public static List<AppInfo> apps;
-    public static ArrayAdapter<AppInfo> adapter;
-    PackageManager packageManager;
-    GridView grdView;
+    public static ArrayAdapter<AppContainer> adapter;
+    private PackageManager packageManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        packageManager = getPackageManager();
+
+        loadGridView();
+
         // Checks whether its the first time the app is started
         SharedPreferences sharedPreferences = getApplicationContext()
                 .getSharedPreferences("initial", Context.MODE_PRIVATE);
         boolean alreadySetup = sharedPreferences.getBoolean("setup", false);
 
-        if(alreadySetup) {
+        if (alreadySetup) {
             // If not simply load and initialize the configuration
             configurationManager = new ConfigurationManager(this);
             configurationManager.addObserver(this::onConfigChanged);
@@ -69,53 +70,19 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, InitialConfigActivity.class);
             startActivityForResult(intent, REQUEST_INITIAL_CONFIG_SETUP);
         }
-
-        adapter = null;
-        apps =null;
-        getApps();
-        loadGridView();
-        addGridListeners();
-
-        registerForContextMenu(grdView);
-    }
-
-    /**
-     * ContextMenu pop up when lon press on an app
-     * @param menu
-     * @param v
-     * @param menuInfo
-     */
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        super.onCreateContextMenu(menu, v, menuInfo);
-        menu.setHeaderTitle("App nicht mehr hier anzeigen");
-        getMenuInflater().inflate(R.menu.delete_menu,menu);
-    }
-
-    /**
-     * Delete selected App
-     * @param item
-     * @return
-     */
-    @Override
-    public boolean onContextItemSelected(MenuItem item) {
-        if(item.getItemId()==R.id.delete_app){
-            Toast.makeText(this,"App gelöscht",Toast.LENGTH_SHORT).show();
-
-            return true;
-        } else
-            return super.onContextItemSelected(item);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if(requestCode == REQUEST_APP_CHOOSE) {
-            if(resultCode == AppChooseActivity.RESULT_OK) {
+        if (requestCode == REQUEST_APP_CHOOSE) {
+            if (resultCode == AppChooseActivity.RESULT_OK) {
                 String appPackageName = data.getStringExtra("app_package_name");
-                configurationManager.add(new AppContainer(appPackageName));
+                if(!configurationManager.add(new AppContainer(appPackageName))) {
+
+                }
             }
-        } else if(requestCode == REQUEST_INITIAL_CONFIG_SETUP) {
-            if(resultCode == InitialConfigActivity.RESULT_OK) {
+        } else if (requestCode == REQUEST_INITIAL_CONFIG_SETUP) {
+            if (resultCode == InitialConfigActivity.RESULT_OK) {
                 configurationManager = new ConfigurationManager(this, InitialConfigActivity.initialContainer);
                 SharedPreferences sharedPreferences = getApplicationContext()
                         .getSharedPreferences("initial", Context.MODE_PRIVATE);
@@ -124,14 +91,12 @@ public class MainActivity extends AppCompatActivity {
                 configurationManager = new ConfigurationManager(this);
             }
             configurationManager.addObserver(this::onConfigChanged);
+            onConfigChanged(null, null);
         }
     }
 
-    /**
-     * opens a new window where all the apps are listed when the plus button is clicked
-     * @param view
-     */
-    public void onPlusButtonClick(View view){
+
+    public void openAppChooseActivity() {
         Intent intent = new Intent(this, AppChooseActivity.class);
         startActivityForResult(intent, REQUEST_APP_CHOOSE);
     }
@@ -139,126 +104,100 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * This method will be invoked when the configuration changes.
-     * @param ob The changed object (ignored).
+     *
+     * @param ob  The changed object (ignored).
      * @param arg Arguments from the changed object (ignored).
      */
     private void onConfigChanged(Observable ob, Object arg) {
-        final List<AppContainer> toShowApps = configurationManager.getApps();
-
-        // Write there code to show the apps in toShowApps List!
-
-        // You can remove this afterwards
-        Toast.makeText(getApplicationContext(),"Apps changed, now " + toShowApps.size(), Toast.LENGTH_SHORT).show();
-    }
-
-    /**
-     * run the app when clicked
-     */
-    public void addGridListeners() {
-        try {
-            grdView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    Intent intent = packageManager.getLaunchIntentForPackage(apps.get(i).name.toString());
-                    MainActivity.this.startActivity(intent);
-                }
-            });
-        } catch (Exception ex) {
-            Toast.makeText(MainActivity.this, ex.getMessage().toString() + " Grid", Toast.LENGTH_LONG).show();
-            Log.e("Error Grid", ex.getMessage().toString() + " Grid");
-        }
-
+        List<AppContainer> apps = configurationManager.getApps();
+        apps.add(new AppContainer());
+        adapter.clear();
+        adapter.addAll(apps);
+        adapter.notifyDataSetChanged();
     }
 
     /**
      * load the GridView to display the apps on the homeScreen
      */
     private void loadGridView() {
-
+        DisplayMetrics metrics = new DisplayMetrics();
+        WindowManager wm = (WindowManager) this.getSystemService(Context.WINDOW_SERVICE);
+        wm.getDefaultDisplay().getMetrics(metrics);
+        final int width = metrics.widthPixels;
+        ConstraintLayout.LayoutParams layoutSize = new ConstraintLayout.LayoutParams(width / 2, width / 2);
         try {
-            grdView = findViewById(R.id.grd_allApps);
+            GridView grdView = findViewById(R.id.grd_allApps);
             if (adapter == null) {
-                adapter = new ArrayAdapter<AppInfo>(this, R.layout.app_on_home_screen, apps) {
+                adapter = new ArrayAdapter<AppContainer>(this, R.layout.app_on_home_screen, new ArrayList<>()) {
 
                     @Override
                     public View getView(int position, View convertView, ViewGroup parent) {
 
-                        ViewHolderItem viewHolder ;
+                        AppContainer currentApp = getItem(position);
+
+                        ViewHolderItem viewHolder;
 
                         if (convertView == null) {
                             convertView = getLayoutInflater().inflate(
                                     R.layout.app_on_home_screen, parent, false
                             );
                             viewHolder = new ViewHolderItem();
-                            viewHolder.icon =  convertView.findViewById(R.id.img_icon);
-                            viewHolder.name =  convertView.findViewById(R.id.txt_name);
-                            viewHolder.label =  convertView.findViewById(R.id.txt_label);
-
-                            convertView.setTag(viewHolder);
+                            convertView.setLayoutParams(layoutSize);
                         } else {
                             viewHolder = (ViewHolderItem) convertView.getTag();
                         }
 
-                        AppInfo appInfo = apps.get(position);
-                        if (appInfo != null) {
-                            viewHolder.icon.setImageDrawable(appInfo.icon);
-                            viewHolder.label.setText(appInfo.label);
-                            viewHolder.name.setText(appInfo.name);
+                        viewHolder.icon = convertView.findViewById(R.id.img_icon);
+                        viewHolder.label = convertView.findViewById(R.id.txt_label);
+
+                        if(!currentApp.isAddNewApp) {
+                            convertView.setOnLongClickListener(v -> {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                                builder.setTitle("App entfernen")
+                                        .setMessage("Möchten Sie die App von dem Hauptbildschirm entfernen?")
+                                        .setPositiveButton("Ja", (dialog, id) ->
+                                                configurationManager.removeAt(position))
+                                        .setNegativeButton("Nein", (dialog, id) -> {
+                                        })
+                                        .create().show();
+                                return true;
+                            });
+
+                            convertView.setOnClickListener(v -> {
+                                Intent intent = packageManager.getLaunchIntentForPackage(currentApp.getPackageName());
+                                MainActivity.this.startActivity(intent);
+                            });
+                        } else {
+                            convertView.setOnClickListener(v -> openAppChooseActivity());
+                            convertView.setOnLongClickListener(null);
                         }
 
+                        convertView.setTag(viewHolder);
+
+                        if(!currentApp.isAddNewApp) {
+                            viewHolder.icon.setImageDrawable(currentApp.getIcon());
+                            viewHolder.label.setText(currentApp.getLabel());
+                        } else {
+                            viewHolder.icon.setImageDrawable(getResources().
+                                    getDrawable(getResources().getIdentifier("@drawable/plus_button",
+                                            null, getPackageName())));
+                            viewHolder.label.setText("App hinzufügen");
+                        }
 
                         return convertView;
-
                     }
 
                     final class ViewHolderItem {
                         ImageView icon;
                         TextView label;
-                        TextView name;
                     }
                 };
             }
 
             grdView.setAdapter(adapter);
         } catch (Exception ex) {
-            Toast.makeText(MainActivity.this, ex.getMessage().toString() + " loadListView", Toast.LENGTH_LONG).show();
-            Log.e("Error loadListView", ex.getMessage().toString() + " loadListView");
+            Toast.makeText(MainActivity.this, ex.getMessage() + " loadListView", Toast.LENGTH_LONG).show();
+            Log.e("Error loadListView", ex.getMessage() + " loadListView");
         }
-
     }
-
-
-    /**
-     * get all instaled apps in a list of AppInfo
-     */
-    private void getApps() {
-        try {
-
-            packageManager = getPackageManager();
-            if (apps == null) {
-                apps = new ArrayList<AppInfo>();
-
-                Intent i = new Intent(Intent.ACTION_MAIN, null);
-                i.addCategory(Intent.CATEGORY_LAUNCHER);
-
-                List<ResolveInfo> availableApps = packageManager.queryIntentActivities(i, 0);
-                for (ResolveInfo ri : availableApps) {
-                    AppInfo appinfo = new AppInfo();
-                    appinfo.label = ri.loadLabel(packageManager);
-                    appinfo.name = ri.activityInfo.packageName;
-                    appinfo.icon = ri.activityInfo.loadIcon(packageManager);
-                    apps.add(appinfo);
-
-                }
-            }
-
-        } catch (Exception ex) {
-            Toast.makeText(MainActivity.this, ex.getMessage().toString() + " loadApps", Toast.LENGTH_LONG).show();
-            Log.e("Error loadApps", ex.getMessage().toString() + " loadApps");
-        }
-
-    }
-
-
-
 }

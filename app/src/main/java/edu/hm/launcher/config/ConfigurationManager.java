@@ -9,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 
@@ -62,18 +63,22 @@ public class ConfigurationManager extends Observable {
      * @return The list.
      */
     public List<AppContainer> getApps() {
-        return currentConfig.getApps();
+        return new ArrayList<>(currentConfig.getApps());
     }
 
     /**
      * Adds a new App to the end of the list.
      * @param container The to add App.
+     * @return Whether the app was added, false if already added
      */
-    public void add(AppContainer container) {
+    public boolean add(AppContainer container) {
+        if(contains(container.getPackageName())) return false;
+
         currentConfig.add(container);
         setAppPackageManager(container);
         setChanged();
         notifyObservers(currentConfig);
+        return true;
     }
 
     /**
@@ -96,6 +101,31 @@ public class ConfigurationManager extends Observable {
         currentConfig.removeAt(id);
         setChanged();
         notifyObservers(currentConfig);
+    }
+
+    public void remove(String packageName) {
+        List<AppContainer> allApps = currentConfig.getApps();
+        for (int i = 0; i < allApps.size(); i++) {
+            if(allApps.get(i).getPackageName().equals(packageName)) {
+                removeAt(i);
+                return;
+            }
+        }
+    }
+
+    /**
+     * Checks whether the given packagename is already contained in the current config.
+     * @param packageName
+     * @return
+     */
+    public boolean contains(String packageName) {
+        List<AppContainer> allApps = currentConfig.getApps();
+        for (int i = 0; i < allApps.size(); i++) {
+            if(allApps.get(i).getPackageName().equals(packageName)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -123,12 +153,19 @@ public class ConfigurationManager extends Observable {
         notifyObservers(currentConfig);
     }
 
+    /**
+     * Sets the package manager of all AppContainer, therefor loading their label and icon.
+     */
     public void setAllAppsPackageManager() {
         for (AppContainer app : getApps()) {
             setAppPackageManager(app);
         }
     }
 
+    /**
+     * Sets the package managers off an AppContainer
+     * @param app
+     */
     private void setAppPackageManager(AppContainer app) {
         try {
             app.setPackageManager(packageManager);
