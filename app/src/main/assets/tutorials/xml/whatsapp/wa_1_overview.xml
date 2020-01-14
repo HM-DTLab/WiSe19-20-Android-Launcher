@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TutorialSequence>
+    <TutorialPart id='0'>
+        <Title>
+            Übersicht
+        </Title>
+        <Image>/images/whatsapp/wa_overview.png</Image>
+        <Description>Wenn Sie WhatsApp öffnen, sehen Sie mehrere Dinge. Die Bereiche „Chats“, „Status“ und „Anrufe“ (1). Eine Liste mit Ihren Chats (2). Und ein grünes Nachricht-Symbol am rechten unteren Rand des Bildschirms (3). Die drei Bereiche (1) ermöglichen es Ihnen zum Beispiel, zwischen Nachrichten und Anrufen umzuschalten. Chats (2) sind schriftliche Gespräche zwischen Ihnen und einer Person, oder zwischen Ihnen und einer Gruppe. Mit dem Nachricht-Symbol können Sie zum Beispiel eine neue Nachricht an eine Person schreiben.</Description>
+    </TutorialPart>
+</TutorialSequence>

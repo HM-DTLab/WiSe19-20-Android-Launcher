@@ -11,7 +11,7 @@ public class XmlFactory {
      * @return A XmlIConfigurationParser.
      */
     public static IConfigurationParser getParser(int version) {
-        return new XmlParserV1();
+            return new XmlParserV1();
     }
 
 }
