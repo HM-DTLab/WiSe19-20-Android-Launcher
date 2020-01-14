@@ -14,7 +14,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.hm.launcher.MainActivity;
+import edu.hm.launcher.home.MainActivity;
 import edu.hm.launcher.R;
 import edu.hm.launcher.config.container.ConfigurationTutorialContainer;
 import edu.hm.launcher.config.container.TutorialContainer;

@@ -9,15 +9,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@android:color/background_light"
         android:orientation="vertical">
-
-        <android.support.v7.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-            app:title="@string/actvity_app_choose_toolbar" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/app_choose_recyclerview"

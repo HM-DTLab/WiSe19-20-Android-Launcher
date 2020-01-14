@@ -11,6 +11,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -30,8 +31,11 @@ import edu.hm.launcher.config.ConfigurationManager;
 import edu.hm.launcher.config.change.AppChooseActivity;
 import edu.hm.launcher.config.container.AppContainer;
 import edu.hm.launcher.config.initial.InitialConfigActivity;
+import edu.hm.launcher.tutorial.FirstTutorialPage;
 
 public class MainActivity extends AppCompatActivity {
+
+    float x1, x2, y1, y2;
 
     public static final int REQUEST_APP_CHOOSE = 0;
     public static final int REQUEST_INITIAL_CONFIG_SETUP = 1;
@@ -95,6 +99,24 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public boolean onTouchEvent(View view, MotionEvent touchEvent) {
+        switch(touchEvent.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                x1 = touchEvent.getX();
+                y1 = touchEvent.getY();
+                break;
+            case MotionEvent.ACTION_UP:
+                x2 = touchEvent.getX();
+                y2 = touchEvent.getY();
+                if(x1+300 < x2){
+                    Intent intent = new Intent(this, FirstTutorialPage.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                    break;
+                }
+        }
+        return true;
+    }
 
     public void openAppChooseActivity() {
         Intent intent = new Intent(this, AppChooseActivity.class);
@@ -127,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
         ConstraintLayout.LayoutParams layoutSize = new ConstraintLayout.LayoutParams(width / 2, width / 2);
         try {
             GridView grdView = findViewById(R.id.grd_allApps);
+            grdView.setOnTouchListener(this::onTouchEvent);
             if (adapter == null) {
                 adapter = new ArrayAdapter<AppContainer>(this, R.layout.app_on_home_screen, new ArrayList<>()) {
 
