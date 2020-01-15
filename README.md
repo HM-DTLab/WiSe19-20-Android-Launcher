@@ -44,7 +44,7 @@ Durch Drücken auf das Plus-Icon kann man neue Apps hinzufügen.
 
 ### Tutorialansicht
 
-![Tutorialansicht](/resources_readme/launcher_tutorial_list.png) --> Bild  
+![Tutorialansicht](resources_readme/launcher_tutorial_list.png) --> Bild  
 
 Durch ein Wischen nach links gelangt man zur Tutorialseite, die pro Kategorie Tutorials für unterstützte Apps anzeigt.  
 
