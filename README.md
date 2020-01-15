@@ -10,8 +10,8 @@ Der hier vorgestellte Android-Launcher mit einer eigenen Tutorial-Funktion ist e
 
 ## Problemstellung
 
-Im Gespräch mit einer Person von der Deutschen Alzheimer Gesellschaft zeigte sich, dass im Alltag sehr viele unterschiedliche Apps verwendet werden. So gibt es eine eigene App für Termine, eine für Wecker, eine für Notizen, eine um Nachrichten zu versenden und viele mehr. Aus Erfahrung mit älteren Verwandten und Bekannten wussten wir, dass viele bei der Anzahl an Apps überfordert sind und oftmals grundlegende Funktionen vergessen werden. Die produktive Verwendung eines Mobiltelefons stellt sich dadurch häufig nicht ein.  
-Zur Eingrenzung der Probleme entwickelten wir UserStories, die Sie [hier](/resources_readme/UserStories.pdf) nachlesen können.
+Im Gespräch mit einer Person von der Deutschen Alzheimer Gesellschaft zeigte sich, dass im Alltag sehr viele unterschiedliche Apps verwendet werden. So gibt es eine eigene App für Termine, eine für Wecker, eine für Notizen, eine um Nachrichten zu versenden und viele mehr. Aus Erfahrung mit älteren Verwandten und Bekannten wussten wir, dass viele bei der Anzahl an unterschiedlichen Apps überfordert sind und oftmals grundlegende Funktionen vergessen werden. Die produktive Verwendung eines Mobiltelefons stellt sich dadurch häufig nicht ein.  
+Zur Beschreibung der Probleme entwickelten wir UserStories, die Sie [hier](/resources_readme/UserStories.pdf) nachlesen können.
 
 ## Idee
 
@@ -28,10 +28,10 @@ Bei der ersten Verwendung unserer App, wird der Benutzer nach seiner bevorzugten
 
 ![Auswahl der Konfigurationsart](/resources_readme/launcher_config.png)  
 
-Zur Auswahl stehen dabei die manuelle Konfiguration, die automatische Konfiguration und die Konfiguration über eine Organisation.  
+Zur Auswahl stehen dabei die manuelle Konfiguration, die geführte Konfiguration und die Konfiguration über eine Organisation.  
 Die manuelle Konfiguration ermöglicht es dem Benutzer, von Beginn an selbst die Apps auszuwählen, die er angezeigt haben möchte.  
-Die automatische Konfiguration wählt im Hintergrund automatisch die wichtigsten Apps pro Kategorie an, und zeigt sie an.
-Bei der Konfiguration über eine Organisation werden die Einstellungen und Präferenzen einer gewählten Konfiguration übernommen.
+Die geführte Konfiguration fragt den Benutzer in einer Art Installationsprozess nach den gewünschten App. Dabei werden ihm pro Kategorie alle verfügbaren Apps zur Auswahl angeboten.  
+Bei der Konfiguration über eine Organisation werden die Einstellungen und Präferenzen einer gewählten Organisation übernommen.
 
 ### Hauptansicht
 
