@@ -1,7 +1,5 @@
 # Android-Launcher mit Tutorial-Funktion
 
-![App Übersicht]()  --> Bild
-
 
 ## Übersicht
 
