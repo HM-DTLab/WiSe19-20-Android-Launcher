@@ -24,7 +24,9 @@ Unseren ersten Entwurf und das daraus entstandene Press Release können Sie [hie
 ### Erste Verwendung
 
 Bei der ersten Verwendung unserer App, wird der Benutzer nach seiner bevorzugten Konfigurationsmöglichkeit gefragt.  
-![Auswahl der Konfigurationsart]() --> Bild  
+
+![Auswahl der Konfigurationsart](/resources_readme/launcher_config.png)  
+
 Zur Auswahl stehen dabei die manuelle Konfiguration, die automatische Konfiguration und die Konfiguration über eine Organisation.  
 Die manuelle Konfiguration ermöglicht es dem Benutzer, von Beginn an selbst die Apps auszuwählen, die er angezeigt haben möchte.  
 Die automatische Konfiguration wählt im Hintergrund automatisch die wichtigsten Apps pro Kategorie an, und zeigt sie an.
@@ -32,19 +34,23 @@ Bei der Konfiguration über eine Organisation werden die Einstellungen und Präf
 
 ### Hauptansicht
 
-![Hauptansicht]() --> Bild  
+![Hauptansicht](/resources_readme/launcher_icons.png) 
 
-Die Hauptansicht besteht aus sechs Kacheln mit den am häufigsten verwendeten Apps. Durch Drücken auf ein Icon öffnet sich die dazugehörige App, so wie man es von anderen Launchern gewöhnt ist.  
+Die Hauptansicht besteht aus Kacheln mit den am häufigsten verwendeten Apps. Durch Drücken auf ein Icon öffnet sich die dazugehörige App, so wie man es von anderen Launchern gewöhnt ist.  
+
+![Apps hinzufügen](/resources_readme/launcher_icons_add_app.png)
+
+Durch Drücken auf das Plus-Icon kann man neue Apps hinzufügen. 
 
 ### Tutorialansicht
 
-![Tutorialansicht]() --> Bild  
+![Tutorialansicht](/resources_readme/launcher_tutorial_list.png) --> Bild  
 
 Durch ein Wischen nach links gelangt man zur Tutorialseite, die pro Kategorie Tutorials für unterstützte Apps anzeigt.  
 
-![WhatsApp-Tutorial]()*Das Tutorial zu der Nachrichtenapp WhatsApp*
+![WhatsApp-Tutorial](/resources_readme/launcher_tutorial_index.png)*Das Tutorial zu der Nachrichtenapp WhatsApp*
 
-Durch Drücken auf ein Element wird das dazugehörige Tutorial geöffnet.
+Durch Drücken auf ein Element wird das dazugehörige Inhaltsverzeichnis geöffnet.
 
 ## FAQ
 
